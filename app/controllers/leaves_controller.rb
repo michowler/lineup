@@ -4,6 +4,7 @@ class LeavesController < ApplicationController
 	end
 
 	def show
+		@leafe = Leafe.find(params[:id])
 	end
 
 	def new
@@ -13,7 +14,9 @@ class LeavesController < ApplicationController
 	def create
 		@leafe = Leafe.new(create_params)
 		@leafe.save
-		redirect_to root_path
+		total_days = @leafe.end_date.mjd-@leafe.start_date.mjd
+		@leafe.update(total_days: total_days)
+		redirect_to leafe_path(@leafe)
 	end
 
 	def update
