@@ -1,0 +1,2 @@
+class Leafe < ApplicationRecord
+end
