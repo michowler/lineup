@@ -16,8 +16,10 @@ class UsersController < Clearance::UsersController
         @user.role = 'customer'
         if @user.save
             sign_in @user
+            flash[:success] = "User has been created."
             redirect_back_or url_after_create
         else
+            flash[:alert] = "Invalid input."
             render template: "users/new"
         end
     end
@@ -30,9 +32,11 @@ class UsersController < Clearance::UsersController
         @user = User.find(params[:id])
         if @user.save
             sign_in @user
-            redirect_to
+            flash[:success] = "Update successful!"
+            redirect_to @user
         else
-            render template
+            flash[:danger] = "Update fail. Invalid inputs."
+            render :edit
         end
     end
     
