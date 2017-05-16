@@ -1,6 +1,6 @@
 <%=form_for @leafe do |form|%>
-	<%=form.label :type%>
-	<%=form.select :type,options_for_select([["Select type",""]]+Leafe.types.keys)%>
+	<%=form.label :leave_type%>
+	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.types.keys)%>
 
 	<%=form.label :reason%>
 	<%=form.text_area :leave_reason%>

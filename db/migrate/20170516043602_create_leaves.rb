@@ -3,7 +3,7 @@ class CreateLeaves < ActiveRecord::Migration[5.0]
     create_table :leaves do |t|
     	t.integer	:user_id
     	t.integer	:manager_id
-    	t.integer	:type
+    	t.integer	:leave_type
     	t.string	:leave_reason
     	t.integer	:status
     	t.string	:rejection_reason
