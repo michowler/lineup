@@ -1,0 +1,27 @@
+<%=form_for @leafe do |form|%>
+	<%=form.label :leave_type%>
+	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.types.keys)%>
+
+	<%=form.label :reason%>
+	<%=form.text_area :leave_reason%>
+
+	<%=form.label :start_date%>
+	<%=form.text_field :start_date, class: "datepicker"%>
+
+	<%=form.label :end_date%>
+	<%=form.text_field :end_date, class: "datepicker"%>
+
+	<%=form.hidden_field :user_id, :value => current_user.id %>
+
+	<%=form.hidden_field :status, :value => "Pending" %>
+
+	<%=form.submit "Submit"%>
+<%end%>
+
+<%= javascript_tag do%>
+  $('.datepicker').datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: new Date()
+  });
+
+<%end%>

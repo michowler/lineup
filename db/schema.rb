@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170516043602) do
   create_table "leaves", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "manager_id"
-    t.integer  "type"
+    t.integer  "leave_type"
     t.string   "leave_reason"
     t.integer  "status"
     t.string   "rejection_reason"
