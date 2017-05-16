@@ -1,15 +1,15 @@
 <%=form_for @leafe do |form|%>
 	<%=form.label :leave_type%>
-	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.types.keys)%>
+	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys)%>
 
 	<%=form.label :reason%>
-	<%=form.text_area :leave_reason%>
+	<%=form.text_area :leave_reason, required: true%>
 
 	<%=form.label :start_date%>
-	<%=form.text_field :start_date, class: "datepicker"%>
+	<%=form.text_field :start_date, class: "datepicker", required: true%>
 
 	<%=form.label :end_date%>
-	<%=form.text_field :end_date, class: "datepicker"%>
+	<%=form.text_field :end_date, class: "datepicker", required: true%>
 
 	<%=form.hidden_field :user_id, :value => current_user.id %>
 
@@ -20,8 +20,7 @@
 
 <%= javascript_tag do%>
   $('.datepicker').datepicker({
-    dateFormat: "yy-mm-dd",
-    minDate: new Date()
+    dateFormat: "yy-mm-dd"
   });
 
 <%end%>

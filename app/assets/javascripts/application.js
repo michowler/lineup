@@ -16,3 +16,13 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load",function(){
+
+
+    $('select').attr("required",true)
+
+
+
+    
+})

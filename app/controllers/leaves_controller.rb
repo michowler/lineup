@@ -11,7 +11,9 @@ class LeavesController < ApplicationController
 	end
 
 	def create
-
+		@leafe = Leafe.new(create_params)
+		@leafe.save
+		redirect_to root_path
 	end
 
 	def update
@@ -23,7 +25,7 @@ class LeavesController < ApplicationController
 	private
 
 	def create_params
-		params.require(:leafe).permit(:leave_type,:reason,:start_date,:end_date,:user_id,:status)
+		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:user_id,:status)
 	end
 
 end
