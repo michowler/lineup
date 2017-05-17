@@ -1,8 +1,5 @@
-<%=link_to "Sick Leave", sick_leaves_path%>
-
 <%=form_for @leafe do |form|%>
-	<%=form.label :leave_type%>
-	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys.first(4))%>
+	<%=form.hidden_field :leave_type, :value => "Sick"%>
 
 	<%=form.label :reason%>
 	<%=form.text_area :leave_reason, required: true%>
@@ -23,23 +20,13 @@
 <%= javascript_tag do%>
   $('#datepicker1').datepicker({
     dateFormat: "yy-mm-dd",
-    minDate: new Date(),
-    beforeShowDay: function(date){
-      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
-    },
     onSelect: function(date){
       $("#datepicker2").datepicker('option','minDate',date)
     }
   });
 
   $('#datepicker2').datepicker({
-  	dateFormat: "yy-mm-dd",
-    minDate: new Date(),
-    beforeShowDay: function(date){
-      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
-    }
-  })
+  	dateFormat: "yy-mm-dd"
+  });
 
 <%end%>
