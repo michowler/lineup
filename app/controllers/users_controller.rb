@@ -13,7 +13,6 @@ class UsersController < Clearance::UsersController
 
     def create
         @user = user_from_params
-        @user.role = 'customer'
         if @user.save
             sign_in @user
             flash[:success] = "User has been created."
