@@ -1,3 +1,6 @@
+
+<div id="calendar" class="col-md-8"></div>
+
 <%=form_for @leafe do |form|%>
 	<%=form.label :leave_type%>
 	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys)%>
@@ -17,6 +20,8 @@
 
 	<%=form.submit "Submit"%>
 <%end%>
+
+
 
 <%= javascript_tag do%>
 document.addEventListener("turbolinks:load",function(){
