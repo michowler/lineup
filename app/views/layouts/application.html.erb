@@ -14,11 +14,14 @@
     <% end -%>
   </div>
 
-  <div id="flash">
+  
     <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+    <div class="alert alert-<%=key%> alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <%=h value %>
+    </div>
     <% end %>
-  </div>
+  
 
   <%= yield %>
 </body>
