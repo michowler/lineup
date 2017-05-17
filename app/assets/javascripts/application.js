@@ -23,8 +23,33 @@ document.addEventListener("turbolinks:load",function(){
 
 
     $('select').attr("required",true)
-    $('#calendar').fullCalendar({});
+    $('select').attr("class","form-control")
+
+    $('#calendar').fullCalendar({
+    	selectable: true,
+    	select: function(start, end, jsEvent, view) {
+	         // start contains the date you have selected
+	         // end contains the end date. 
+	         // Caution: the end date is exclusive (new since v2).
+
+	         start_date = moment(start).format()
+	         end_date = yesterday(moment(end).format())
+	         $('#datepicker1').val(start_date)
+	         $('#datepicker2').val(end_date)
+	    }
+    });
 
 
     
 })
+
+function yesterday(date){
+	$date = new Date(date);
+	$date.setDate($date.getDate() - 1);
+	var $dd = $date.getDate();
+	var $mm = $date.getMonth()+1; //January is 0!
+
+	var $yyyy = $date.getFullYear();
+	if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
+	return $yyyy+'-'+$mm+'-'+$dd;
+}
