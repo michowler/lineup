@@ -1,6 +1,8 @@
 class Api::V1::SessionsController < Api::V1::ApplicationController
 
     skip_before_action :check_authorization
+    skip_before_action :login_required
+    skip_before_filter :login_required
     
     def create
         email, password = session_params.values_at("email", "password")
