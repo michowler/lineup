@@ -203,6 +203,7 @@ DEPENDENCIES
   byebug
   clearance
   coffee-rails (~> 4.2)
+  font-awesome-rails
   fullcalendar-rails
   jbuilder (~> 2.5)
   jquery-rails
