@@ -7,6 +7,7 @@
 </head>
 <body>
 <% if signed_in? -%>
+ <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
 <div class="row">
   <div id="header" >
   <div class="area"></div>
@@ -89,19 +90,6 @@
                    </span>
                </a>
            </li>
-       </ul>
-
-       <ul class="logout">
-           <li>
-              <a href="#">
-                <i class="fa fa-power-off fa-2x"></i>
-                   <span class="nav-text">
-                  
-                        <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-                      
-                   </span>
-               </a>
-           </li>  
        </ul>
    </nav>
   </div>
