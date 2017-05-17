@@ -6,14 +6,98 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
+<% if signed_in? -%>
+ <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+<div class="row">
+  <div id="header" >
+  <div class="area"></div>
+    <nav class="main-menu" style= "position:fixed">
+       <ul>
+           <li>
+               <a href="/users/<%=current_user.id%>">
+                   <i class="fa fa-user-circle fa-2x"></i>
+                   <span class="nav-text">
+                       Profile
+                   </span>
+               </a>
+             
+           </li>
+           <li>
+               <a href="#">
+                   <i class="fa fa-home fa-2x"></i>
+                   <span class="nav-text">
+                       Inbox
+                   </span>
+               </a>
+             
+           </li>
+           <li class="has-subnav">
+               <a href="#">
+                   <i class="fa fa-laptop fa-2x"></i>
+                   <span class="nav-text">
+                       Past Transactions
+                   </span>
+               </a>
+               
+           </li>
+           <li class="has-subnav">
+               <a href="#">
+                  <i class="fa fa-list fa-2x"></i>
+                   <span class="nav-text">
+                       History
+                   </span>
+               </a>
+               
+           </li>
+           <li class="has-subnav">
+               <a href="#">
+                  <i class="fa fa-folder-open fa-2x"></i>
+                   <span class="nav-text">
+                       Pages
+                   </span>
+               </a>
+              
+           </li>
+           <li>
+               <a href="#">
+                   <i class="fa fa-bar-chart-o fa-2x"></i>
+                   <span class="nav-text">
+                       Graphs and Statistics
+                   </span>
+               </a>
+           </li>
+           <li>
+               <a href="#">
+                   <i class="fa fa-font fa-2x"></i>
+                   <span class="nav-text">
+                       Typography and Icons
+                   </span>
+               </a>
+           </li>
+           <li>
+              <a href="#">
+                  <i class="fa fa-table fa-2x"></i>
+                   <span class="nav-text">
+                       Calender
+                   </span>
+               </a>
+           </li>       
+           <li>
+               <a href="#">
+                  <i class="fa fa-info fa-2x"></i>
+                   <span class="nav-text">
+                       Documentation
+                   </span>
+               </a>
+           </li>
+       </ul>
+   </nav>
   </div>
+<% else -%>
 
+    <%= link_to t(".sign_in"), sign_in_path %>
+
+<% end -%>
   
     <% flash.each do |key, value| -%>
     <div class="alert alert-<%=key%> alert-dismissable">
@@ -22,7 +106,9 @@
     </div>
     <% end %>
   
-
+  <div class="container">
   <%= yield %>
+  </div>
+  </div>
 </body>
 </html>

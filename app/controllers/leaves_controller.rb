@@ -29,7 +29,7 @@ class LeavesController < ApplicationController
 	private
 
 	def create_params
-		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:user_id,:status)
+		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:user_id,:status,:total_days)
 	end
 
 end
