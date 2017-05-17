@@ -2,7 +2,6 @@ class Api::V1::ApplicationController < ApplicationController
     skip_before_action :verify_authenticity_token
     before_action :check_authorization
     skip_before_action :login_required
-    skip_before_filter :login_required
 
     def check_authorization
         return not_authorized_message if params["private_token"].nil?
@@ -17,6 +16,9 @@ class Api::V1::ApplicationController < ApplicationController
 
     def current_user
         @current_user
+    end
+
+    def login_required
     end
 end
 
