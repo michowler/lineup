@@ -9,7 +9,8 @@
 <% if signed_in? -%>
 
   <div id="header">
-  <div class="area"></div><nav class="main-menu">
+  <div class="area"></div>
+    <nav class="main-menu" style= "position:fixed">
        <ul>
            <li>
                <a href="/users/<%=current_user.id%>">
@@ -117,7 +118,8 @@
     </div>
     <% end %>
   
-
+  <div class="container" style="margin: 65px 65px;">
   <%= yield %>
+  </div>
 </body>
 </html>
