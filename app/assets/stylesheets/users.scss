@@ -1,3 +1,4 @@
+
 .fa {
 position: relative;
 display: table-cell;
@@ -32,7 +33,8 @@ z-index:1000;
 }
 
 .main-menu>ul {
-margin:7px 0;
+left:0;
+display:inline;
 }
 
 .main-menu li {
@@ -107,12 +109,14 @@ transform: scale(1.1);
 background-color:#ff7070;
 border-radius: 23px;
 }
+
 .area {
 float: left;
 background: #e2e2e2;
 width: 100%;
 height: 100%;
 }
+
 @font-face {
   font-family: 'Titillium Web';
   font-style: normal;

@@ -1,137 +1,50 @@
-<div class="area"></div><nav class="main-menu">
-     <ul>
-         <li>
-             <a href="#">
-                 <i class="fa fa-user-circle fa-2x"></i>
-                 <span class="nav-text">
-                     Profile
-                 </span>
-             </a>
-           
-         </li>
-         <li>
-             <a href="#">
-                 <i class="fa fa-home fa-2x"></i>
-                 <span class="nav-text">
-                     Inbox
-                 </span>
-             </a>
-           
-         </li>
-         <li class="has-subnav">
-             <a href="#">
-                 <i class="fa fa-laptop fa-2x"></i>
-                 <span class="nav-text">
-                     Past Transactions
-                 </span>
-             </a>
-             
-         </li>
-         <li class="has-subnav">
-             <a href="#">
-                <i class="fa fa-list fa-2x"></i>
-                 <span class="nav-text">
-                     History
-                 </span>
-             </a>
-             
-         </li>
-         <li class="has-subnav">
-             <a href="#">
-                <i class="fa fa-folder-open fa-2x"></i>
-                 <span class="nav-text">
-                     Pages
-                 </span>
-             </a>
-            
-         </li>
-         <li>
-             <a href="#">
-                 <i class="fa fa-bar-chart-o fa-2x"></i>
-                 <span class="nav-text">
-                     Graphs and Statistics
-                 </span>
-             </a>
-         </li>
-         <li>
-             <a href="#">
-                 <i class="fa fa-font fa-2x"></i>
-                 <span class="nav-text">
-                     Typography and Icons
-                 </span>
-             </a>
-         </li>
-         <li>
-            <a href="#">
-                <i class="fa fa-table fa-2x"></i>
-                 <span class="nav-text">
-                     Calender
-                 </span>
-             </a>
-         </li>       
-         <li>
-             <a href="#">
-                <i class="fa fa-info fa-2x"></i>
-                 <span class="nav-text">
-                     Documentation
-                 </span>
-             </a>
-         </li>
-     </ul>
+<body style="padding-left: 65px;">
 
-     <ul class="logout">
-         <li>
-            <a href="#">
-                  <i class="fa fa-power-off fa-2x"></i>
-                 <span class="nav-text">
-                     Logout
-                 </span>
-             </a>
-         </li>  
-     </ul>
- </nav>
+  <h1>Welcome <%= @user.name %></h1>
+  <div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
 
-<h1>Welcome <%= @user.name %></h1>
-<div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
-
-<% if current_user && current_user.id == @user.id %>
-<h2>Leaves</h2>
-  <table class="table table-striped">
-    <tr>
-      <th>Title</th>
-      <th>Actions</th>
-    </tr>
-
-    <% @user.leaves.each do |leave| %>
+  <% if current_user && current_user.id == @user.id %>
+  <h2>Leaves</h2>
+    <table class="table table-striped">
       <tr>
-        <td><%= link_to leave.leave_type, leave %></td>
-        <td><%= link_to leave.leave_type, leave %></td>
-        
+        <th>Title</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </table>
+
+      <% @user.leaves.each do |leave| %>
+        <tr>
+          <td><%= link_to leave.leave_type, leave %></td>
+          <td><%= link_to leave.leave_type, leave %></td>
+          
+        </tr>
+      <% end %>
+    </table>
 
 
-   <h2>Leaves</h2>
-     <table class="table table-striped">
-       <tr>
-         <th>leave_type</th>
-         <th>Start Date</th>
-         <th>End Date</th>
-         <th>Status</th>
-         <th>Total days</th>
-         <th>Actions</th>
-       </tr>
-
-       <% @user.leaves.each do  |leave| %>
+     <h2>Leaves</h2>
+       <table class="table table-striped">
          <tr>
-           <td><%= link_to leave.leave_type, leave %></td>
-           <td><%= leave.start_date.strftime('%d %B %Y') %></td>
-           <td><%= leave.end_date.strftime('%d %B %Y') %></td>
-           <td><%= leave.status %></td>
-           <td> <%= leave.total_days %></td>
-           <td> <%= leave.total_days %></td>
+           <th>leave_type</th>
+           <th>Start Date</th>
+           <th>End Date</th>
+           <th>Status</th>
+           <th>Total days</th>
+           <th>Actions</th>
          </tr>
-       <% end %>
-     </table>
- <%end%>
+
+         <% @user.leaves.each do  |leave| %>
+           <tr>
+             <td><%= link_to leave.leave_type, leave %></td>
+             <td><%= leave.start_date.strftime('%d %B %Y') %></td>
+             <td><%= leave.end_date.strftime('%d %B %Y') %></td>
+             <td><%= leave.status %></td>
+             <td> <%= leave.total_days %></td>
+             <td> <%= leave.total_days %></td>
+           </tr>
+         <% end %>
+       </table>
+   <%end%>
+
+ </body>
+
+
