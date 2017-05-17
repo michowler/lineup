@@ -27,7 +27,7 @@
          <th>leave_type</th>
          <th>Start Date</th>
          <th>End Date</th>
-         <th>status</th>
+         <th>Status</th>
          <th>Total days</th>
          <th>Actions</th>
        </tr>
@@ -38,8 +38,8 @@
            <td><%= leave.start_date.strftime('%d %B %Y') %></td>
            <td><%= leave.end_date.strftime('%d %B %Y') %></td>
            <td><%= leave.status %></td>
-           <td>RM <%= leave.total_days %></td>
-           <td>RM <%= leave.total_days %></td>
+           <td> <%= leave.total_days %></td>
+           <td> <%= leave.total_days %></td>
          </tr>
        <% end %>
      </table>
