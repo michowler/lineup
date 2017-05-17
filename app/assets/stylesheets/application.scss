@@ -5,6 +5,12 @@
 @import "fullcalendar";
 @import "users";
 
-#calendar {
-	
+body {
+	background-color: #F7F7F7;	
+	overflow-x: hidden;
+}
+
+.container {
+	margin: 100px;
+	width:90%;
 }

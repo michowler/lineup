@@ -7,8 +7,8 @@
 </head>
 <body>
 <% if signed_in? -%>
-
-  <div id="header">
+<div class="row">
+  <div id="header" >
   <div class="area"></div>
     <nav class="main-menu" style= "position:fixed">
        <ul>
@@ -118,8 +118,9 @@
     </div>
     <% end %>
   
-  <div class="container" style="margin: 65px 65px;">
+  <div class="container">
   <%= yield %>
+  </div>
   </div>
 </body>
 </html>
