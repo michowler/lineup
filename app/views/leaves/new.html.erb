@@ -1,17 +1,15 @@
-<%=link_to "Sick Leave", sick_leaves_path%>
-
 <%=form_for @leafe do |form|%>
 	<%=form.label :leave_type%>
-	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys.first(4))%>
+	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys)%>
 
 	<%=form.label :reason%>
 	<%=form.text_area :leave_reason, required: true%>
 
 	<%=form.label :start_date%>
-	<%=form.text_field :start_date, id: "datepicker1", required: true%>
+	<%=form.text_field :start_date, class: "datepicker", id: "datepicker1", required: true%>
 
 	<%=form.label :end_date%>
-	<%=form.text_field :end_date, id: "datepicker2", required: true%>
+	<%=form.text_field :end_date, class: "datepicker", id: "datepicker2", required: true%>
 
 	<%=form.hidden_field :user_id, :value => current_user.id %>
 
@@ -21,25 +19,48 @@
 <%end%>
 
 <%= javascript_tag do%>
-  $('#datepicker1').datepicker({
-    dateFormat: "yy-mm-dd",
-    minDate: new Date(),
-    beforeShowDay: function(date){
-      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
-    },
-    onSelect: function(date){
-      $("#datepicker2").datepicker('option','minDate',date)
-    }
-  });
+document.addEventListener("turbolinks:load",function(){
 
-  $('#datepicker2').datepicker({
-  	dateFormat: "yy-mm-dd",
-    minDate: new Date(),
-    beforeShowDay: function(date){
-      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
-    }
-  })
+	$("#leafe_leave_type").click(function(){
+		$('.datepicker').datepicker('destroy');
+		var id = this.value
+		if (id != "" && id != "Sick"){
+		  $('#datepicker1').datepicker({
+		    dateFormat: "yy-mm-dd",
+		    minDate: new Date(),
+		    beforeShowDay: function(date){
+		      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+		      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
+		    },
+		    onSelect: function(date){
+		      $("#datepicker2").datepicker('option','minDate',date)
+		    }
+		  });
+
+		  $('#datepicker2').datepicker({
+		  	dateFormat: "yy-mm-dd",
+		    minDate: new Date(),
+		    beforeShowDay: function(date){
+		      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+		      return [ <%=raw Leafe.approved_dates%>.indexOf(string) == -1 ]
+		    }
+		  })
+		}
+		else if (id == "Sick"){
+		  $('#datepicker1').datepicker({
+		    dateFormat: "yy-mm-dd",
+		    onSelect: function(date){
+		      $("#datepicker2").datepicker('option','minDate',date)
+		    }
+		  });
+
+		  $('#datepicker2').datepicker({
+		  	dateFormat: "yy-mm-dd"
+		  });
+		}
+	})
+
+	
+})
 
 <%end%>

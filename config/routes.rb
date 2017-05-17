@@ -26,6 +26,5 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   root "pages#index"
   resources :leaves, controller: "leaves"
-  get "/sick_leaves" => "leaves#sick"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
