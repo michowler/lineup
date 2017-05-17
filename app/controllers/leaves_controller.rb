@@ -20,10 +20,6 @@ class LeavesController < ApplicationController
 		redirect_to leafe_path(@leafe)
 	end
 
-	def sick
-		@leafe = Leafe.new
-	end
-
 	def update
 	end
 
