@@ -3,6 +3,7 @@ class SessionsController < Clearance::SessionsController
     @user = authenticate(params)
 
     sign_in(@user) do |status|
+      byebug
       if status.success?
         redirect_to root_path
       else
