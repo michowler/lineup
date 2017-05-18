@@ -10,6 +10,7 @@ class CreateLeaves < ActiveRecord::Migration[5.0]
     	t.date		:start_date
     	t.date 		:end_date
     	t.integer	:total_days
+      t.attachment  :proof
       t.timestamps
     end
   end
