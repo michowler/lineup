@@ -1,15 +1,17 @@
 @import "jquery-ui.min";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 @import "fullcalendar";
+@import "font-awesome";
 @import "users";
+@import "pages";
+
+
 
 body {
 	background-color: #F7F7F7;	
-	overflow-x: hidden;
+	overflow-x: hidden;	
 }
-
 
 
 @media screen and (min-width: 1200px) {
