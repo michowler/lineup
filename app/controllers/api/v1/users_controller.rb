@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::ApplicationController
 
     # def update
     #     @user = User.find_by_id(params[:id])
@@ -10,11 +10,14 @@ class Api::V1::UsersController < ApplicationController
     #     end
     # end
 
+    # def index
+    #     users = Users.all
+    #     render json: users
+    # end
     def index
-        users = Users.all
-        render json: users
+        render json: "hi"
     end
-    
+
     def show
         user = User.where(private_token: params[:private_token]).first
         # user = user.to_json
