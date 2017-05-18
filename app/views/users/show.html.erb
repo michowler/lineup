@@ -1,6 +1,8 @@
 <body style="padding-left: 65px;">
+<div class="col-lg-12">
+<h1 class="page-header">Welcome <%= @user.name %></h1>
+</div>
 
-  <h1>Welcome <%= @user.name %></h1>
   <div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
 
   <% if current_user && current_user.id == @user.id %>
