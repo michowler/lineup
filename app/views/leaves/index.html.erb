@@ -1,3 +1,4 @@
+
 <table class="table table-striped">
 <thead>
 <tr>
@@ -33,3 +34,8 @@
 </table>
 
 <%=render "detailsModal"%>
+
+<% if !signed_in? -%>
+<p> PLEASE SIGN UP</p>
+<% end -%>
+
