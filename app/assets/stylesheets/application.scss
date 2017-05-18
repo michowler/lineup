@@ -9,20 +9,25 @@
 
 
 body {
-	background-color: #F7F7F7;	
 	overflow-x: hidden;	
 }
 
-
-@media screen and (min-width: 1200px) {
-    .container {
-		margin: 10% 0% 0% 6%; 
-		width:90%;
-	}
+.page-header{
+	padding-bottom:9px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 50px;
 }
-@media screen and (max-width: 1200px) {
-    .container {
-		margin: 20% 0% 0% 18%; 
-		width:70%;
+
+.wrapper {
+	padding: 0 50px;
+	min-height: 568px;
+	margin: 60px 0 0 100px;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+    	position:inherit;
+    	margin: 100px 0 0 100px;
+    	padding: 0 100px;
 	}
 }
