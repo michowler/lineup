@@ -2,6 +2,9 @@ class User < ApplicationRecord
   include Clearance::User
 
   has_many :leaves
+  belongs_to :manager, class_name: "User"
+  has_many :members, class_name: "User", foreign_key: :manager_id
+
   validates_confirmation_of :password
   before_save :generate_private_token
 

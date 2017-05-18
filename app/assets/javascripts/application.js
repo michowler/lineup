@@ -36,8 +36,19 @@ document.addEventListener("turbolinks:load",function(){
 	         end_date = yesterday(moment(end).format())
 	         $('#datepicker1').val(start_date)
 	         $('#datepicker2').val(end_date)
-	    }
+	    },
+	    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
+	    events: {
+            googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+        }
     });
+
+    $('.glyphicon-remove').click(function(){
+    	url = $(this).attr("id")
+    	$('form').attr("action",url)
+    })
+
+    
 
 
     
