@@ -36,8 +36,19 @@ document.addEventListener("turbolinks:load",function(){
 	         end_date = yesterday(moment(end).format())
 	         $('#datepicker1').val(start_date)
 	         $('#datepicker2').val(end_date)
-	    }
+	    },
+	    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
+	    events: {
+            googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+        }
     });
+
+    $('.glyphicon-remove').click(function(){
+    	url = $(this).attr("id")
+    	$('form').attr("action",url)
+    })
+
+    
 
 
     
@@ -53,3 +64,29 @@ function yesterday(date){
 	if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
 	return $yyyy+'-'+$mm+'-'+$dd;
 }
+
+$(window).scroll(function () {
+	if ($(window).scrollTop() >= 50) {
+	$('.navbar').css('background','black');
+	} 
+	else {
+	$('.navbar').css('background','transparent');
+	}
+});
+
+$(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        
+        $(".navbar").fadeIn('slow');
+    } else {
+        
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+

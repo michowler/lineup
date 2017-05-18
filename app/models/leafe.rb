@@ -14,4 +14,10 @@ class Leafe < ApplicationRecord
 		approved.flatten.uniq if approved != []
 	end
 
+	def weekdays
+		days = (self.start_date..self.end_date).map(&:wday)
+		weekends = days.count(6)+days.count(0)
+		total_days = self.end_date.mjd-self.start_date.mjd+1-weekends
+	end
+
 end

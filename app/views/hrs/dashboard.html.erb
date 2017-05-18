@@ -1,0 +1,33 @@
+<div class="col-lg-12">
+<h1 class="page-header">Dashboard</h1>
+</div>
+
+<div class= "row">
+<div id="hrCalendar" class="col-sm-6 col-md-6"></div>
+
+<div class= "col-sm-6 col-md-6">
+	
+	<div class="col-sm-12 col-md-12">
+	<%@leaves = Leafe.where(status: "Pending").where("start_date > ?",Time.now).order("start_date").includes(:user).limit(5)%>
+	<%=render "leaves/pending_table", :object => @leafe%>
+		
+	</div>
+
+	<div class="col-sm-12 col-md-12" id="chart_div"></div>
+</div>
+
+</div>
+
+<%=javascript_tag do%>
+	$('#hrCalendar').fullCalendar({
+		events: [
+			<%Leafe.where(status:"Approved").each do |leave|%>
+				{
+					title: '<%=leave.user.name+" "+leave.leave_type+" Leave"%>',
+					start: "<%=leave.start_date%>",
+					end:	"<%=leave.end_date%>"
+				},
+			<%end%>
+		]
+	})
+<%end%>
