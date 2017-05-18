@@ -5,6 +5,7 @@ class Leafe < ApplicationRecord
 	enum leave_type: ["Annual", "Maternity", "Paternity", "Study", "Sick"]
 	enum status: ["Pending","Approved","Rejected"]
 
+
 	def self.approved_dates
 		approved = []
 		Leafe.where(status: "Approved").each do |leave|
