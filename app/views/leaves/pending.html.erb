@@ -9,6 +9,8 @@
 <th>From</th>
 <th>To</th>
 <th></th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 
@@ -23,6 +25,16 @@
 <td><%=l.start_date%></td>
 <td><%=l.end_date%></td>
 <td>
+	<%=link_to "/leafe/approve/#{l.id}", "data-toggle"=> "tooltip", title: "Approve", remote: true do%>
+		<i class="glyphicon glyphicon-ok"></i>
+	<%end%>
+</td>
+<td>
+	<%=link_to "#", "data-toggle"=> "tooltip", title: "Reject", remote: true do%>
+		<i class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#rejectModal" id="/leafe/reject/<%=l.id%>"></i>
+	<%end%>
+</td>
+<td>
 	<%=link_to "/leafe/details/#{l.id}", "data-toggle"=> "tooltip", title: "Details", remote: true do%>
 		<i class="glyphicon glyphicon-exclamation-sign"></i>
 	<%end%>
@@ -31,5 +43,7 @@
 <%end%>
 </tbody>
 </table>
+
+<%=render "rejectModal"%>
 
 <%=render "detailsModal"%>
