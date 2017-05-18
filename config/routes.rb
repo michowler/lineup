@@ -27,5 +27,10 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   root "pages#index"
   resources :leaves, controller: "leaves"
+  get "/pending_leaves" => "leaves#pending"
+  get "/leafe/approve/:id" => "leaves#approve"
+  post "/leafe/reject/:id" => "leaves#reject"
+  get "/leafe/details/:id" => "leaves#details"
+  get "/hr/dashboard" => "hrs#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
