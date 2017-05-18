@@ -5,7 +5,9 @@ class User < ApplicationRecord
   validates_confirmation_of :password
   before_save :generate_private_token
 
-
+  enum position: ["Employee","Manager"]
+  enum department: ["Human Resource","Accounting","Marketing"]
+  
   # def self.authenticate!(email, password)
   #   byebug
   #       user = User.find_by(email: email)
