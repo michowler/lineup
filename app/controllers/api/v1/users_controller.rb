@@ -14,9 +14,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     #     users = Users.all
     #     render json: users
     # end
-    def index
-        render json: "hi"
-    end
+    # def index
+    #     render json: "hi"
+    # end
 
     def show
         user = User.where(private_token: params[:private_token]).first
