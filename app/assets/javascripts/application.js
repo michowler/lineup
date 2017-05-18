@@ -66,10 +66,27 @@ function yesterday(date){
 }
 
 $(window).scroll(function () {
-	if ($(window).scrollTop() >= 100) {
-	$('.navbar').css('background','rgba(235,235,235,0.5)');
+	if ($(window).scrollTop() >= 50) {
+	$('.navbar').css('background','black');
 	} 
 	else {
 	$('.navbar').css('background','transparent');
 	}
 });
+
+$(window).scroll(
+    {
+        previousTop: 0
+    }, 
+    function () {
+    var currentTop = $(window).scrollTop();
+    if (currentTop < this.previousTop) {
+        
+        $(".navbar").fadeIn('slow');
+    } else {
+        
+        $(".navbar").hide();
+    }
+    this.previousTop = currentTop;
+});
+

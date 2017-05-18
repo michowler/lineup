@@ -19,8 +19,7 @@ class LeavesController < ApplicationController
 	def create
 		@leafe = Leafe.new(create_params)
 		@leafe.save
-		total_days = @leafe.end_date.mjd-@leafe.start_date.mjd+1
-		@leafe.update(total_days: total_days)
+		@leafe.update(total_days: @leafe.weekdays)
 		flash[:success] = "Request submitted"
 		redirect_to leafe_path(@leafe)
 	end
