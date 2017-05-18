@@ -1,17 +1,19 @@
 
 body, html {
-    height: 100%;   
+    height: auto; 
+     width: 100%;  
+
 }
 
 .fa {
-position: relative;
-display: table-cell;
-width: 60px;
-color:black;
-height: 36px;
-text-align: center;
-vertical-align: middle;
-font-size:20px;
+	position: relative;
+	display: table-cell;
+	width: 60px;
+	color: grey;
+	height: 36px;
+	text-align: center;
+	vertical-align: middle;
+	font-size:20px;
 }
 
 .navbar-fixed {
@@ -43,9 +45,8 @@ font-size:20px;
     }
 }
 
-
 #parallax2 {
-    background-image: url('/assets/background1.jpg') !important;
+    background-image: url('/assets/lemonchiffon.jpg') !important;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -136,18 +137,7 @@ ul.social-icons {
 .fa-rss:hover {
     background-color: #ADD8E6;
 }
-.fa-youtube {
-    padding:10px 14px;
-    -o-transition:.5s;
-    -ms-transition:.5s;
-    -moz-transition:.5s;
-    -webkit-transition:.5s;
-    transition: .5s;
-    background-color: #322f30;
-}
-.fa-youtube:hover {
-    background-color: #e64a41;
-}
+
 .fa-linkedin {
     padding:10px 14px;
     -o-transition:.5s;
@@ -183,4 +173,18 @@ ul.social-icons {
     border-radius: 10px;
 }
 
+nav.navbar{
+   -webkit-transition: all 0.4s ease;
+   transition: all 0.4s ease;
+   border:none !important;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+  
+}
+
+nav.navbar.transparent {
+  background-color:transparent;
+}
 
