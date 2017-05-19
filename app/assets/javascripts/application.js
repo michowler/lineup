@@ -21,10 +21,6 @@
 
 document.addEventListener("turbolinks:load",function(){
 
-
-    $('select').attr("required",true)
-    $('select').attr("class","form-control")
-
     $('#calendar').fullCalendar({
     	selectable: true,
     	select: function(start, end, jsEvent, view) {

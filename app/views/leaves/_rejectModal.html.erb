@@ -13,7 +13,7 @@
       <%=form_tag "#" do%>
       <div class="modal-body">
       <div class="form-group">
-        <%=text_area_tag :rejection_reason,nil, class: "form-control"%>
+        <%=text_area_tag :rejection_reason,nil,rows: "10", class: "form-control"%>
         <%=hidden_field_tag :status,"Rejected"%>
       </div>
         <%=submit_tag "Submit",class: "btn btn-default"%>
