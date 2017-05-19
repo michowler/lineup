@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170519094214) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170519094214) do
     t.integer  "total_days"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.json     "images"
   end
 
   create_table "total_leaves", force: :cascade do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170519094214) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "name"
+    t.integer  "position"
     t.string   "email",                          null: false
     t.integer  "department"
     t.integer  "manager_id"

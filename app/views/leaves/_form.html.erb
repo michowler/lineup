@@ -16,6 +16,9 @@
 	<div class="form-group">
 	<%=form.label :end_date%>
 	<%=form.text_field :end_date, class: "datepicker form-control", id: "datepicker2", required: true%>
+
+	<%= form.label :upload_images %><br>
+  <%= form.file_field :images, multiple: true %>
 	</div>
 
 <%= javascript_tag do%>
