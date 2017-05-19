@@ -18,6 +18,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     #     render json: "hi"
     # end
 
+    #NEED TO DO manager name
     def show
         user = User.where(private_token: params[:private_token]).first
         manager = User.where(manager_id: 1)
