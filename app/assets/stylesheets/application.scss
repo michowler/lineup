@@ -36,13 +36,26 @@ body {
 	}
 }
 
-.row {
-	margin-top: 50px;
-}
 
 .action{
 	border:1px solid #eee;
     padding: 10px;
     text-align: center;
     height: 60px;
+}
+
+.btn-default,
+.btn-default:active,
+.btn-default:visited,
+.btn-default:focus {
+    background-color: #8064A2;
+    border-color: white;
+    color:white;
+}
+
+.btn-default:hover {
+	background-color: orange;
+	border-color: white;
+	color:white;
+	
 }
