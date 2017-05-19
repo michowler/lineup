@@ -7,7 +7,7 @@ class SessionsController < Clearance::SessionsController
 	      	if current_user.department == "Human Resource"
 	      		redirect_to "/hr/dashboard"
 	      	else
-	        	redirect_to user_path(current_user)
+	        	redirect_to "/user_dashboard"
 	        end
 	      else
 	        flash.now.notice = status.failure_message

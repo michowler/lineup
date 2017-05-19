@@ -2,21 +2,78 @@
 <h1 class="page-header">Dashboard</h1>
 </div>
 
+
 <div class= "row">
-<div class="col-sm-6 col-md-6">
+<div class="col-sm-6 col-md-2">
+	<div class="action">Requests</div>
+</div>
+<div class="col-sm-6 col-md-2">
+	<div class="action">History</div>
+</div>
+<div class="col-sm-6 col-md-2">
+	<div class="action">Leaves this Month</div>
+</div>
+<div class="col-sm-6 col-md-2">
+	<div class="action">Add Employee</div>
+</div>
+<div class="col-sm-6 col-md-2">
+	<div class="action">View Employees</div>
+</div>
+<div class="col-sm-6 col-md-2">
+	<div class="action">Calendar</div>
+</div>
+
+</div>
+
+<div class= "row">
+<div class="col-md-5">
+
+
+
+<div class="col-sm-12 col-md-12" style="margin: 25px 0px 25px 0px">
 	<%=render "leaves/hrCalendar"%>
 </div>
 
-<div class= "col-sm-6 col-md-6">
+
+
+
+</div>
+
+
+<div class="col-md-7">
+<div class= "col-sm-12 col-md-12">
 	
 	<div class="col-sm-12 col-md-12">
-	<%@leaves = Leafe.where(status: "Pending").where("start_date > ?",Time.now).order("start_date").includes(:user).limit(5)%>
-	<%=render "leaves/pending_table", :object => @leafe%>
+	<div class="col-lg-12">
+	<h3 class="page-header">Requests</h3>
+	</div>
+	<%@leaves = Leafe.where.not(status: "Approved").where("start_date >= ?",Time.now).order("start_date").includes(:user)%>
+	<%=render "leaves/leaves_table", :object => @leaves%>
 		
 	</div>
 
-	<div class="col-sm-12 col-md-12" id="chart_div"></div>
-</div>
+	<div class="col-sm-12 col-md-12">
+	<div class="col-lg-12">
+	<h3 class="page-header">Upcoming</h3>
+	</div>
+	<%@leaves = Leafe.where(status: "Approved").where("start_date >= ?",Time.now).order("start_date").includes(:user)%>
+	<%=render "leaves/leaves_table", :object => @leaves%>
+		
+	</div>
+
 
 </div>
+</div>
+</div>
+
+<div class="col-md-6">
+	<%=render "linechart"%>
+</div>
+<div class="col-md-6">
+</div>
+
+
+
+
+
 
