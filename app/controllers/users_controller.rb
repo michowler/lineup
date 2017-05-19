@@ -29,6 +29,7 @@ class UsersController < Clearance::UsersController
     def update
         @user = User.find(params[:id])
         if @user.save
+            @user.update(user_params)
             sign_in @user
             flash[:success] = "Update successful!"
             redirect_to @user
@@ -55,7 +56,7 @@ class UsersController < Clearance::UsersController
   # end
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password_confirmation, :department, :leaves_no, :private_token)
+		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar)
 	end 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516043602) do
+ActiveRecord::Schema.define(version: 20170519034356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20170516043602) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "total_leaves", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "annual"
+    t.integer "maternity"
+    t.integer "non_paid"
+    t.integer "study"
+    t.integer "sick"
+    t.integer "emergency"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -37,8 +47,7 @@ ActiveRecord::Schema.define(version: 20170516043602) do
     t.string   "email",                          null: false
     t.integer  "department"
     t.integer  "manager_id"
-    t.integer  "leaves_no"
-    t.string   "phone_no"
+    t.string   "phone _no"
     t.string   "address"
     t.string   "avatar"
     t.string   "private_token"
