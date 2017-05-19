@@ -4,16 +4,19 @@
 @import "fullcalendar";
 @import "font-awesome";
 @import "pages";
-@import "user-navbar";
 @import "users";
+@import "leaves";
 
 
 body {
 	overflow-x: hidden;	
 	font-family: 'Muli', sans-serif;
+	background-color: white;
+
 }
 
 .page-header{
+
 	padding-bottom:9px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 50px;
@@ -22,13 +25,13 @@ body {
 .wrapper {
 	padding: 0 50px;
 	min-height: 568px;
-	margin: 60px 0 0 100px;
+	margin: 20px 0 0 100px;
 }
 
 @media screen and (min-width: 768px) {
     .wrapper {
     	position:inherit;
-    	margin: 100px 0 0 100px;
+    	margin: 20px 0 0 100px;
     	padding: 0 100px;
 	}
 }

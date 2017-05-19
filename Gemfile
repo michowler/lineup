@@ -32,9 +32,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+<<<<<<< HEAD
+
+=======
 gem "font-awesome-rails"
 #for image uploading
 gem 'carrierwave', '~> 1.0'
+>>>>>>> 8219f40a8b86a977b642cd7bef501165d1f99ae2
 
 
 # Use Capistrano for deployment
@@ -58,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'clearance'
 gem 'jquery-ui-rails'
+gem "font-awesome-rails"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'rails_12factor'

@@ -11,26 +11,13 @@
 </head>
 <body>
 <% if signed_in?%>
-<div  class="open">
-    <span class="cls"></span>
-    <span>
-        <ul class="sub-menu ">
-            <li>
-                <a href="/" title="about">Home</a>
-            </li>
-            <li>
-                <a href="#skills" title="skills">Contact</a>
-            </li>
-            <li>
-                <a href="#jobs" title="jobs">About</a>
-            </li>
-            <li>
-                <a href="#contact" title="contact"><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning"%></a>
-            </li>
-        </ul>
-    </span>
-    <span class="cls"></span>
-</div>
+   <div class="collapse navbar-collapse" id="myNavbar" style="background-color: black; width:100%; margin: none;">
+
+      <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
+       <%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %>
+      </ul>
+  </div> <!--ul-li-->
+   
 <%end%>
 
 <% if signed_in? -%>
@@ -118,7 +105,7 @@
                </a>
            </li>
        </ul>
-       <%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-info" %>
+      
    </nav>
   </div>
 
