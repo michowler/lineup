@@ -13,5 +13,6 @@ module Lineup
     # -- all .rb files in that directory are automatically loaded.
     config.sass.load_paths << File.expand_path('../../lib/assets/stylesheets/')
     config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
+    config.time_zone = "Kuala Lumpur"
   end
 end
