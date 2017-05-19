@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 #for image uploading
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem "figaro"
 
 
 # Use Capistrano for deployment
