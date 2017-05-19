@@ -1,5 +1,7 @@
 class Api::V1::LeavesController < Api::V1::ApplicationController
     
+
+    #send total up leave days to them.
     
     def create
         leafe = Leafe.new(create_params)
@@ -10,9 +12,21 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
     end
     
     def show
-        leafe = Leafe.find(params[:id])
-        render json: leafe , status: :ok
+        leaves = Leafe.where(private_token: params[:private_token])
+        render json: leaves, status: :ok
     end
+
+    #so they can update their leave request
+    def update
+    end
+    
+    # def approve
+    #     leafe = Leafe.where(private_token: params[:private_token])
+    #     leafe = leafe.update(status: "Approved")
+    #     render json: leafe, status: :ok
+    # end
+    
+
     
 
 	private
