@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :leaves
   end
+  get "/user_dashboard" => "users#dashboard"
 
   #api for mobile
   namespace :api do

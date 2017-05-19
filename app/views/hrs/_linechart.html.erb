@@ -1,0 +1,31 @@
+<div id="chart_div"></div>
+
+<%=javascript_tag do%>
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Month');
+      data.addColumn('number', 'Number of Leaves');
+
+      data.addRows([
+      <%Leafe.leaves_every_month.each_with_index do |leave,index|%>
+        ['<%=Date::MONTHNAMES[index+1]%>',  <%=leave%>],
+      <%end%>
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Absentees every month'
+        },
+        height: 500,
+        legend: {position: 'none'}
+      };
+
+      var chart = new google.charts.Line(document.getElementById('chart_div'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+<%end%>

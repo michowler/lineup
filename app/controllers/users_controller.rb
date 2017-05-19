@@ -38,7 +38,8 @@ class UsersController < Clearance::UsersController
         end
     end
     
-  
+    def dashboard
+    end
 
   
 
