@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem "figaro"
+gem "fog"
 
 
 # Use Capistrano for deployment
