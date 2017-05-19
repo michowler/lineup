@@ -12,13 +12,14 @@ Rails.application.routes.draw do
   resources :users do
     resources :leaves
   end
+  get "/user_dashboard" => "users#dashboard"
 
   #api for mobile
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:create]
       resources :users, only: [:index, :show]
-      resources :leaves, only: [:create, :show]
+      resources :leaves, only: [:create, :destroy]
     end
   end
   

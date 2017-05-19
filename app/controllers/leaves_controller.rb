@@ -5,7 +5,7 @@ class LeavesController < ApplicationController
 	end
 
 	def pending
-		@leaves = Leafe.where(status: "Pending").where("start_date > ?",Time.now).order("start_date").includes(:user)
+		@leaves = Leafe.where(status: "Pending").where("start_date >= ?",Time.now).order("start_date").includes(:user)
 		session[:path] = request.fullpath
 	end
 
@@ -61,6 +61,11 @@ class LeavesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@leafe = Leafe.find(params[:id])
+		@leafe.destroy
+	end
+	
 	private
 
 	def create_params
