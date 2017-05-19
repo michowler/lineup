@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170519095622) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "name"
-    t.integer  "position"
     t.string   "email",                          null: false
     t.integer  "department"
     t.integer  "manager_id"
