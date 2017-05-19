@@ -78,7 +78,7 @@ class LeavesController < ApplicationController
 	end
 
 	def update_params
-		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:status,:total_days)
+		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:status,:total_days, {images: []})
 	end
 
 end
