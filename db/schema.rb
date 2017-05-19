@@ -43,13 +43,9 @@ ActiveRecord::Schema.define(version: 20170519034356) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "name"
-    t.integer  "position"
     t.string   "email",                          null: false
     t.integer  "department"
     t.integer  "manager_id"
-    t.string   "phone _no"
-    t.string   "address"
-    t.string   "avatar"
     t.string   "private_token"
     t.string   "encrypted_password", limit: 128, null: false
     t.string   "confirmation_token", limit: 128
