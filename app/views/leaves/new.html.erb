@@ -7,25 +7,7 @@
 <div class="col-sm-4 col-md-3">
 <%=form_for @leafe,class: "form-horizontal" do |form|%>
 	
-	<div class="form-group">
-	<%=form.label :leave_type%>
-	<%=form.select :leave_type,options_for_select([["Select type",""]]+Leafe.leave_types.keys)%>
-	</div>
-
-	<div class="form-group">
-	<%=form.label :reason%>
-	<%=form.text_area :leave_reason, required: true, class: "form-control"%>
-	</div>
-
-	<div class="form-group">
-	<%=form.label :start_date%>
-	<%=form.text_field :start_date, class: "datepicker form-control", id: "datepicker1", required: true%>
-	</div>
-
-	<div class="form-group">
-	<%=form.label :end_date%>
-	<%=form.text_field :end_date, class: "datepicker form-control", id: "datepicker2", required: true%>
-	</div>
+	<%=render partial: "form", object: form%>
 
 	<%=form.hidden_field :user_id, :value => current_user.id %>
 
@@ -37,41 +19,3 @@
 
 </div>
 
-<%= javascript_tag do%>
-document.addEventListener("turbolinks:load",function(){
-
-	$("#leafe_leave_type").click(function(){
-		$('.datepicker').datepicker('destroy');
-		var id = this.value
-		if (id != "" && id != "Sick"){
-		  $('#datepicker1').datepicker({
-		    dateFormat: "yy-mm-dd",
-		    minDate: new Date(),
-		    onSelect: function(date){
-		      $("#datepicker2").datepicker('option','minDate',date)
-		    }
-		  });
-
-		  $('#datepicker2').datepicker({
-		  	dateFormat: "yy-mm-dd",
-		    minDate: new Date()
-		  })
-		}
-		else if (id == "Sick"){
-		  $('#datepicker1').datepicker({
-		    dateFormat: "yy-mm-dd",
-		    onSelect: function(date){
-		      $("#datepicker2").datepicker('option','minDate',date)
-		    }
-		  });
-
-		  $('#datepicker2').datepicker({
-		  	dateFormat: "yy-mm-dd"
-		  });
-		}
-	})
-
-	
-})
-
-<%end%>

@@ -63,6 +63,22 @@ body, html {
 }
 
 #parallax4 {
+    background-image: url('/assets/mountain.jpg') !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax5 {
+    background-image: url('/assets/background1.jpg') !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax6 {
     background-image: url('/assets/background3.jpg') !important;
     background-attachment: fixed;
     background-position: center;

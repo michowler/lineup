@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170519034356) do
     t.string   "email",                          null: false
     t.integer  "department"
     t.integer  "manager_id"
-    t.string   "phone_no"
+    t.string   "phone _no"
     t.string   "address"
     t.string   "avatar"
     t.string   "private_token"

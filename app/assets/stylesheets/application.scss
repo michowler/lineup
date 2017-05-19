@@ -4,11 +4,13 @@
 @import "fullcalendar";
 @import "font-awesome";
 @import "pages";
+@import "user-navbar";
 @import "users";
 
 
 body {
 	overflow-x: hidden;	
+	font-family: 'Muli', sans-serif;
 }
 
 .page-header{
@@ -30,3 +32,4 @@ body {
     	padding: 0 100px;
 	}
 }
+

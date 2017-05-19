@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>LINEUP</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+<% if signed_in?%>
+<div  class="open">
+    <span class="cls"></span>
+    <span>
+        <ul class="sub-menu ">
+            <li>
+                <a href="/" title="about">Home</a>
+            </li>
+            <li>
+                <a href="#skills" title="skills">Contact</a>
+            </li>
+            <li>
+                <a href="#jobs" title="jobs">About</a>
+            </li>
+            <li>
+                <a href="#contact" title="contact"><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning"%></a>
+            </li>
+        </ul>
+    </span>
+    <span class="cls"></span>
+</div>
+<%end%>
+
 <% if signed_in? -%>
 
 <div class="row">
@@ -25,10 +50,10 @@
              
            </li>
            <li>
-               <a href="#">
+               <a href="/leaves/new">
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
-                       Inbox
+                       Apply Leave
                    </span>
                </a>
              
