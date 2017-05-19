@@ -6,6 +6,7 @@ class LeavesController < ApplicationController
 
 	def pending
 		@leaves = Leafe.where(status: "Pending").where("start_date > ?",Time.now).order("start_date").includes(:user)
+		session[:path] = request.fullpath
 	end
 
 	def show
@@ -24,10 +25,19 @@ class LeavesController < ApplicationController
 		redirect_to leafe_path(@leafe)
 	end
 
-	def update
+	def edit
+		@leafe = Leafe.find(params[:id])
+		respond_to do |format|
+			format.js
+		end
 	end
 
-	def edit
+	def update
+		@leafe = Leafe.find(params[:id])
+		@leafe.update(update_params)
+		@leafe.update(total_days: @leafe.weekdays)
+		flash[:success] = "Request Updated"
+		redirect_to session[:path]
 	end
 
 	def approve
@@ -55,10 +65,15 @@ class LeavesController < ApplicationController
 
 	def create_params
 		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:user_id,:status,:total_days)
+
 	end
 
 	def reject_params
 		params.permit(:status,:rejection_reason)
+	end
+
+	def update_params
+		params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:status,:total_days)
 	end
 
 end
