@@ -18,11 +18,14 @@
 //= require moment 
 //= require fullcalendar
 //= require_tree .
+
 $(document).ready(function(){
 document.addEventListener("turbolinks:load",function(){
 
     $('#calendar').fullCalendar({
     	selectable: true,
+        theme: true,
+
     	select: function(start, end, jsEvent, view) {
 	         // start contains the date you have selected
 	         // end contains the end date. 

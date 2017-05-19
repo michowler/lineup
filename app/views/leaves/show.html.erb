@@ -2,14 +2,45 @@
 <h1 class="page-header">Request's Details</h1>
 </div>
 
-Name: <%=@leafe.user.name%><br>
-Manager: <%=@leafe.user.manager.name if @leafe.user.manager != nil%><br>
-Type: <%=@leafe.leave_type%><br>
-Reason: <%=@leafe.leave_reason%><br>
-Status: <%=@leafe.status%><br>
-<%if @leafe.status == "Rejected"%>
-	Reason of Rejection: <%=@leafe.rejection_reason%><br>
-<%end%>
-Start Date: <%=@leafe.start_date%><br>
-End Date: <%=@leafe.end_date%><br>
-Total days: <%=@leafe.total_days%><br>
+<table class="table-fill">
+	<tbody class="table-hover">
+		<tr>
+		<th class="text-left">Name:</th>
+		<td class="text-left"><%=@leafe.user.name%></td>
+
+		</tr>
+		<tr>
+		<th class="text-left">Manager: </th>
+		<td class="text-left"><%=@leafe.user.manager.name if @leafe.user.manager != nil%> </td>
+
+		</tr>
+		<tr>
+		<th class="text-left">Reason: </th>
+		<td class="text-left"><%=@leafe.leave_reason%></td>
+
+		</tr>
+		<tr>
+		<th class="text-left">Status: </th>
+		<td class="text-left"><%=@leafe.status%>
+		<%if @leafe.status == "Rejected"%>
+			<p>Reason of Rejection: <%=@leafe.rejection_reason%></p>
+		<%end%></td>
+
+		</tr>
+		<tr>
+		<th class="text-left">Start Date: </th>
+		<td class="text-left"><%=@leafe.start_date%></td>
+
+		</tr>
+		<tr>
+		<th class="text-left">End Date: </th>
+		<td class="text-left"><%=@leafe.end_date%></td>
+
+		</tr>
+		<tr>
+		<th class="text-left">Total Days: </th>
+		<td class="text-left"><%=@leafe.total_days%></td>
+
+		</tr>
+	</tbody>
+</table>
