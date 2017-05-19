@@ -49,11 +49,14 @@
 				</tr>
 			</thead>
 			<tbody>
+			<%current_user.total_leafe.attributes.each do |key,value|%>
+			<%next if key == "id" || key == "user_id"%>
 				<tr>
-					<td>Type</td>
-					<td>Total</td>
-					<td>Remaining</td>
+					<td><%=key.capitalize%></td>
+					<td><%=value%></td>
+					<td><%=value-current_user.leaves.where(leave_type: key.capitalize).count%></td>
 				</tr>
+			<%end%>
 			</tbody>
 		</table>
 	</div>

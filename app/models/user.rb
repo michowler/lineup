@@ -4,6 +4,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :leaves
   belongs_to :manager, class_name: "User"
+  belongs_to :total_leafe, class_name: "TotalLeafe"
   has_many :members, class_name: "User", foreign_key: :manager_id
 
   validates_confirmation_of :password
