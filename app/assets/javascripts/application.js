@@ -18,7 +18,7 @@
 //= require moment 
 //= require fullcalendar
 //= require_tree .
-
+$(document).ready(function(){
 document.addEventListener("turbolinks:load",function(){
 
 
@@ -46,8 +46,20 @@ document.addEventListener("turbolinks:load",function(){
     $('.glyphicon-remove').click(function(){
     	url = $(this).attr("id")
     	$('form').attr("action",url)
-    })
+    });
 
+
+    $(document).delegate('.open', 'click', function(event){
+        $(this).addClass('oppenned');
+        event.stopPropagation();
+    })
+    $(document).delegate('body', 'click', function(event) {
+        $('.open').removeClass('oppenned');
+    })
+    $(document).delegate('.cls', 'click', function(event){
+        $('.open').removeClass('oppenned');
+        event.stopPropagation();
+    });
     
 
 
@@ -82,11 +94,13 @@ $(window).scroll(
     var currentTop = $(window).scrollTop();
     if (currentTop < this.previousTop) {
         
-        $(".navbar").fadeIn('slow');
+        $(".navbar").fadeIn('fast');
     } else {
         
         $(".navbar").hide();
     }
     this.previousTop = currentTop;
+});
+
 });
 
