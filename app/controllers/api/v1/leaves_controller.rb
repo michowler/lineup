@@ -5,9 +5,13 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         leafe = Leafe.new(create_params)
         leafe.user_id = current_user.id
         leafe.save
-        total_days = leafe.end_date.mjd - leafe.start_date.mjd+1
-        leafe.update(total_days: total_days)
+        leafe.update(total_days: leafe.weekdays)
         render json: {message: "Request sent"}
+    end
+    
+    def show
+        leafe = Leafe.find(params[:id])
+        render json: leafe , status: :ok
     end
     
 
