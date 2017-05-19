@@ -61,6 +61,11 @@ class LeavesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@leafe = Leafe.find(params[:id])
+		@leafe.destroy
+	end
+	
 	private
 
 	def create_params

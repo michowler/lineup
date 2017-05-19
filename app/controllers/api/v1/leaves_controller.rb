@@ -18,6 +18,10 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
 
     #so they can update their leave request
     # def update
+    #     leafe = Leafe.find(private_token: params[:private_token])
+    #     leafe.user_id = current_user.id
+    #     leafe.update(update_params)
+    #     leafe.update(total_days: leafe.weekdays)
     # end
     
     # def approve
@@ -25,6 +29,12 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
     #     leafe = leafe.update(status: "Approved")
     #     render json: leafe, status: :ok
     # end
+    
+    #comeback and do this
+    def destroy
+        leafe = Leafe.find(params[:id])
+        leafe.destroy
+    end
     
 
     
@@ -36,4 +46,12 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         current_params[:end_date] = Time.zone.parse(params[:end_date])
         return current_params
 	end
+
+    def update_params
+		current_params = params.require(:leafe).permit(:leave_type,:leave_reason,:start_date,:end_date,:status,:total_days)
+        current_params[:start_date] = Time.zone.parse(params[:start_date])
+        current_params[:end_date] = Time.zone.parse(params[:end_date])
+        return current_params
+	end
+
 end
