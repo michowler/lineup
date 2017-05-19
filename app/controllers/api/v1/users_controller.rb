@@ -21,8 +21,11 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     def show
         user = User.where(private_token: params[:private_token]).first
         # user = user.to_json
-        render json: user, status: :ok
-    end
+        respond_to do |format|
+            format.json { render :json => {:user => user,
+            :user => manager_id.name}}
+    #     render json: user, status: :ok
+    # end
     
 end
 

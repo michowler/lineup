@@ -1,0 +1,7 @@
+<%= form_for @user do |form|%>
+<div class="avatar">
+  <%= form.label :upload_avatar %><br>
+	<%= form.file_field :avatar %><br>
+</div>
+<%= form.submit %>
+<%end%>

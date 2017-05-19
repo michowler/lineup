@@ -11,14 +11,14 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         render json: {message: "Request sent"}
     end
     
-    def show
-        leaves = Leafe.where(private_token: params[:private_token])
-        render json: leaves, status: :ok
-    end
+    # def show
+    #     leaves = Leafe.where(private_token: params[:private_token])
+    #     render json: leaves, status: :ok
+    # end
 
     #so they can update their leave request
-    def update
-    end
+    # def update
+    # end
     
     # def approve
     #     leafe = Leafe.where(private_token: params[:private_token])
