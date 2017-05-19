@@ -26,7 +26,7 @@
 <td><%=l.start_date%></td>
 <td><%=l.end_date%></td>
 
-<%if l.status == "Pending"%>
+<%if l.status != "Approved"%>
 <td>
 	<%=link_to "/leafe/approve/#{l.id}", "data-toggle"=> "tooltip", title: "Approve" do%>
 		<i class="glyphicon glyphicon-ok"></i>

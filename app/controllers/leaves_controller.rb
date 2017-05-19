@@ -1,11 +1,16 @@
 class LeavesController < ApplicationController
 
 	def index
-		@leaves = Leafe.all.includes(:user)
+		@leaves = Leafe.where("start_date <= ?", Date.today).order("start_date DESC").includes(:user)
 	end
 
 	def pending
-		@leaves = Leafe.where(status: "Pending").where("start_date >= ?",Time.now).order("start_date").includes(:user)
+		@leaves = Leafe.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user)
+		session[:path] = request.fullpath
+	end
+
+	def upcoming
+		@leaves = Leafe.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user)
 		session[:path] = request.fullpath
 	end
 
