@@ -1,9 +1,45 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
+<div class="form-group">
+  <%= form.label :name %>
+  <%= form.text_field :name, class: "form-control" %>
 </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+<div class="form-group">
+  <%= form.label :email %>
+  <%= form.text_field :email, type: 'email', class: "form-control" %>
 </div>
+
+<div class="form-group">
+  <%= form.label :phone_no %>
+  <%= form.text_field :phone_no, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :address %>
+  <%= form.text_field :address, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :avatar %>
+  <%= form.file_field :avatar, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :position %>
+  <%= form.select :position, options_for_select(User.positions.keys, selected: @user.position),{:prompt => "Select Position"}, {class: "form-control", require: true} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :department %>
+  <%= form.select :department, options_for_select(User.departments.keys, selected: @user.department),{:prompt => "Select Department"}, {class: "form-control", require: true} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :manager %>
+  <%= form.select :manager_id, options_for_select(User.where(position: "Manager").order("name").pluck(:name,:id), selected: @user.manager_id),{:prompt => "Select Manager"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+
+  <%= form.hidden_field :password, value: "abc"%>
+</div>
+
