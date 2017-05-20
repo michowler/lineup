@@ -49,7 +49,7 @@ class LeavesController < ApplicationController
 		@leafe = Leafe.find(params[:id])
 		@leafe.update(status: "Approved")
 		flash[:success] = "Request Approved"
-		redirect_to "/pending_leaves"
+		redirect_to "/hr/pending_leaves"
 	end
 
 	def reject

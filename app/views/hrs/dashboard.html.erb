@@ -4,24 +4,18 @@
 
 
 <div class= "row">
-<div class="col-sm-6 col-md-2">
-	<div class="action">Requests</div>
-</div>
-<div class="col-sm-6 col-md-2">
-	<div class="action">History</div>
-</div>
-<div class="col-sm-6 col-md-2">
-	<div class="action">Leaves this Month</div>
-</div>
-<div class="col-sm-6 col-md-2">
-	<div class="action">Add Employee</div>
-</div>
-<div class="col-sm-6 col-md-2">
-	<div class="action">View Employees</div>
-</div>
-<div class="col-sm-6 col-md-2">
-	<div class="action">Calendar</div>
-</div>
+
+	<%=link_to "Requests", hr_pending_leaves_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
+
+	<%=link_to "History", leaves_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
+
+	<%=link_to "Leaves this Month", "#", class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
+
+	<%=link_to "Add Employee", new_user_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
+
+	<%=link_to "Employees", users_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
+
+	<%=link_to "Calendar", "#", class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
 
 </div>
 
@@ -72,8 +66,7 @@
 <div class="col-md-6">
 </div>
 
-
-
+<%=render 'leaves/rejectModal'%>
 
 
 

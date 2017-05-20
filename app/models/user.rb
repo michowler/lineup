@@ -2,7 +2,7 @@ class User < ApplicationRecord
   include Clearance::User
   require 'carrierwave/orm/activerecord'
   mount_uploader :avatar, AvatarUploader
-  has_many :leaves
+  has_many :leaves, dependent: :destroy
   belongs_to :manager, class_name: "User"
   belongs_to :total_leafe, class_name: "TotalLeafe"
   has_many :members, class_name: "User", foreign_key: :manager_id
