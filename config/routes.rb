@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
 
-  resources :users, controller: "clearance/users", only: [:create] do
+  resources :users, controller: "users", only: [:create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:create]
-      resources :users, only: [:index, :show]
+      resources :users, only: [:show, :user_show]
       resources :leaves, only: [:create, :destroy]
     end
   end
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
-  get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get "/sign_up" => "users#new", as: "sign_up"
   root "pages#index"
   resources :leaves, controller: "leaves"
   get "hr/pending_leaves" => "leaves#pending"

@@ -47,6 +47,11 @@ document.addEventListener("turbolinks:load",function(){
     	$('form').attr("action",url)
     });
 
+    $('.glyphicon-ok').click(function(){
+        url = $(this).attr("id")
+        $('a').attr("href",url)
+    });
+
 
     $(document).delegate('.open', 'click', function(event){
         $(this).addClass('oppenned');
@@ -59,6 +64,31 @@ document.addEventListener("turbolinks:load",function(){
         $('.open').removeClass('oppenned');
         event.stopPropagation();
     });
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= 50) {
+        $('.navbar').css('background','black');
+        } 
+        else {
+        $('.navbar').css('background','transparent');
+        }
+    });
+
+    $(window).scroll(
+        {
+            previousTop: 0
+        }, 
+        function () {
+        var currentTop = $(window).scrollTop();
+        if (currentTop < this.previousTop) {
+            
+            $(".navbar").fadeIn('fast');
+        } else {
+            
+            $(".navbar").hide();
+        }
+        this.previousTop = currentTop;
+    });
     
     window.onload = function() {
       Particles.init({
@@ -68,41 +98,16 @@ document.addEventListener("turbolinks:load",function(){
     
 })
 
+
+});
+
 function yesterday(date){
-	$date = new Date(date);
-	$date.setDate($date.getDate() - 1);
-	var $dd = $date.getDate();
-	var $mm = $date.getMonth()+1; //January is 0!
+    $date = new Date(date);
+    $date.setDate($date.getDate() - 1);
+    var $dd = $date.getDate();
+    var $mm = $date.getMonth()+1; //January is 0!
 
-	var $yyyy = $date.getFullYear();
-	if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
-	return $yyyy+'-'+$mm+'-'+$dd;
+    var $yyyy = $date.getFullYear();
+    if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
+    return $yyyy+'-'+$mm+'-'+$dd;
 }
-
-$(window).scroll(function () {
-	if ($(window).scrollTop() >= 50) {
-	$('.navbar').css('background','black');
-	} 
-	else {
-	$('.navbar').css('background','transparent');
-	}
-});
-
-$(window).scroll(
-    {
-        previousTop: 0
-    }, 
-    function () {
-    var currentTop = $(window).scrollTop();
-    if (currentTop < this.previousTop) {
-        
-        $(".navbar").fadeIn('fast');
-    } else {
-        
-        $(".navbar").hide();
-    }
-    this.previousTop = currentTop;
-});
-
-});
-
