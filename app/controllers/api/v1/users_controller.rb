@@ -21,13 +21,13 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     #NEED TO DO manager name
     def show
         user = User.where(private_token: params[:private_token]).first
-        manager = User.where(manager_id: 1)
+        # manager = User.where(manager_id: 1)
         # user = user.to_json
-        respond_to do |format|
-            format.json { render :json => {:user => user,
-            :manager_name => manager_name}}
-    #     render json: user, status: :ok
-        end
+        # respond_to do |format|
+        #     format.json { render :json => {:user => user,
+        #     :manager_name => manager_name}}
+        render json: user, status: :ok
+        # end
     end
     
 end
