@@ -1,5 +1,5 @@
 class UsersController < Clearance::UsersController
-
+    
     def new
       @user = user_from_params
       render template: "users/new"
@@ -41,8 +41,6 @@ class UsersController < Clearance::UsersController
     
     def dashboard
     end
-
-  
 
   private
 

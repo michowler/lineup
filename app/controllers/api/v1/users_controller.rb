@@ -29,6 +29,14 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         render json: user, status: :ok
         # end
     end
+
+    def user_leaves
+		user = User.find(params[:id])
+        user = user.leaves
+        user = user.pluck(:leave_type, :start_date, :end_date, :total_days)
+        return user
+        render json: user, status: :ok
+    end
     
 end
 
