@@ -1,9 +1,11 @@
 class UsersController < Clearance::UsersController
 
 
+
     def index
       @user = User.all.order("name")
     end
+
     
     def new
       @user = user_from_params
@@ -47,6 +49,7 @@ class UsersController < Clearance::UsersController
     def dashboard
     end
 
+
     def new
       @user = User.new
     end
@@ -57,6 +60,7 @@ class UsersController < Clearance::UsersController
       flash[:success] = "Employee removed from database"
       redirect_to "/users"
     end
+
 
   private
 
