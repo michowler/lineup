@@ -31,8 +31,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     end
 
     def user_leaves
-		user = User.find(params[:id])
-        user = user.leaves
+        # user = User.where(private_token: params[:private_token])
+		user = User.find(params[:id]).leaves
+        # user = user.leaves
         user = user.pluck(:leave_type, :start_date, :end_date, :total_days)
         return user
         render json: user, status: :ok
