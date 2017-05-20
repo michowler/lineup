@@ -7,6 +7,7 @@ ActiveRecord::Base.transaction do
   	user[:name] = Faker::Name.name
   	user[:email] = Faker::Internet.email
   	user[:department] = rand(0..2)
+    user[:position] = rand(0..1)
   	user[:manager_id] = rand(3..42)
   	user[:phone_no] = Faker::PhoneNumber.cell_phone
   	user[:address] = Faker::Address.street_address

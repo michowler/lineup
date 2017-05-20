@@ -28,8 +28,8 @@
 
 <%if l.status != "Approved"%>
 <td>
-	<%=link_to "/leafe/approve/#{l.id}", "data-toggle"=> "tooltip", title: "Approve" do%>
-		<i class="glyphicon glyphicon-ok"></i>
+	<%=link_to "#", "data-toggle"=> "tooltip", title: "Approve", remote: true do%>
+		<i class="glyphicon glyphicon-ok" data-toggle="modal" data-target="#approveModal" id="/leafe/approve/<%=l.id%>"></i>
 	<%end%>
 </td>
 <td>
@@ -58,3 +58,9 @@
 </table>
 
 <%=render "leaves/modal"%>
+
+<%=render "leaves/rejectModal"%>
+
+<%=render "leaves/modal"%>
+
+<%=render "leaves/approveModal"%>

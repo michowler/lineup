@@ -24,99 +24,23 @@
 <% if signed_in? -%>
 
 <div class="row">
-  <div id="header" >
-  <div class="area"></div>
-    <nav class="main-menu" style= "position:fixed">
-    <div>
-        <a class="navbar-brand" href="/"><img src="/assets/lineuplogo.png" , alt="lineup" /></a>
-    </div>
-    <br><br><br><br><br>
-       <ul>
-           <li>
-               <a href="/user_dashboard">
-                   <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Dashboard
-                   </span>
-               </a>
-             
-           </li>
-           <li>
-               <a href="/leaves/new">
-                   <i class="fa fa-table fa-2x"></i>
-                   <span class="nav-text">
-                       Apply Leave
-                   </span>
-               </a>
-             
-           </li>
-        
-           <li class="has-subnav">
-               <a href="#">
-                  <i class="fa fa-list fa-2x"></i>
-                   <span class="nav-text">
-                       History
-                   </span>
-               </a>
-               
-           </li>
-           <li class="has-subnav">
-               <a href="#">
-                  <i class="fa fa-folder-open fa-2x"></i>
-                   <span class="nav-text">
-                       Pages
-                   </span>
-               </a>
-              
-           </li>
-           <li>
-               <a href="#">
-                   <i class="fa fa-bar-chart-o fa-2x"></i>
-                   <span class="nav-text">
-                       Graphs and Statistics
-                   </span>
-               </a>
-           </li>
-           <li>
-               <a href="#">
-                   <i class="fa fa-font fa-2x"></i>
-                   <span class="nav-text">
-                       Typography and Icons
-                   </span>
-               </a>
-           </li>
-           <li>
-              <a href="#">
-                  <i class="fa fa-table fa-2x"></i>
-                   <span class="nav-text">
-                       Calender
-                   </span>
-               </a>
-           </li>       
-           <li>
-               <a href="#">
-                  <i class="fa fa-info fa-2x"></i>
-                   <span class="nav-text">
-                       Documentation
-                   </span>
-               </a>
-           </li>
-       </ul>
-      
-   </nav>
-  </div>
-
+<%if hr?%>
+  <%=render "layouts/hr_side_nav"%>
+<%else%>
+  <%=render "layouts/employee_side_nav"%>
+<%end%>
 <% end -%>
   
-    <% flash.each do |key, value| -%>
-    <div class="alert alert-<%=key%> alert-dismissable">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <%=h value %>
-    </div>
-    <% end %>
+
 
   <% if signed_in?%>
     <div class="wrapper">
+        <% flash.each do |key, value| -%>
+        <div class="alert alert-<%=key%> alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%=h value %>
+        </div>
+        <% end %>
     <%= yield %>
     </div>
   <%else%>

@@ -1,6 +1,6 @@
 	<div class="form-group">
 	<%=form.label :leave_type%>
-	<%=form.select :leave_type,options_for_select(Leafe.leave_types.keys),{:prompt => "Select type"}, {required: 'true', class: 'form-control'}%>
+	<%=form.select :leave_type,options_for_select(Leafe.leave_types.keys,:selected => @leafe.leave_type),{:prompt => "Select type"}, {required: 'true', class: 'form-control'}%>
 	</div>
 
 	<div class="form-group">
@@ -17,8 +17,9 @@
 	<%=form.label :end_date%>
 	<%=form.text_field :end_date, class: "datepicker form-control", id: "datepicker2", required: true%>
 
-	<%= form.label :upload_images %><br>
-  <%= form.file_field :images, multiple: true %>
+	<div class="form-group">
+	<%= form.label :upload_images %>
+    <%= form.file_field :images, multiple: true, class: "btn btn-default" %>
 	</div>
 
 <%= javascript_tag do%>
