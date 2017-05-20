@@ -60,8 +60,11 @@ document.addEventListener("turbolinks:load",function(){
         event.stopPropagation();
     });
     
-
-
+    window.onload = function() {
+      Particles.init({
+        selector: '.background'
+      });
+    };
     
 })
 

@@ -15,7 +15,7 @@
 		<tr>
 			<td><%=l.start_date%></td>
 			<td><%=l.end_date%></td>
-			<td><%=l.leave_type%></td>
+			<td><%= link_to l.leave_type, l %></td>
 			<td><%=l.total_days%></td>
 			<td><%=l.status%></td>
 			<td>

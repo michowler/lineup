@@ -11,8 +11,7 @@
 body {
 	overflow-x: hidden;	
 	font-family: 'Muli', sans-serif;
-	background-color: white;
-
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
 .page-header{
@@ -35,7 +34,6 @@ body {
     	padding: 0 100px;
 	}
 }
-
 
 .action{
 	border:1px solid #eee;
