@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>LINEUP</title>
+<title>LineUP</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear" rel="stylesheet">
   <%= javascript_include_tag 'application' %>
   
   <%= csrf_meta_tag %>
@@ -14,7 +14,7 @@
    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: black; width:100%; margin: none;">
 
       <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
-       <li style="color:grey; padding:5px;"><%=current_user.email%></li>
+       <li class="username"><%=current_user.name%></li>
        <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %></li>
       </ul>
   </div> <!--ul-li-->

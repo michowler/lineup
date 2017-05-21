@@ -1,13 +1,15 @@
 
 <% if !signed_in? %>
 
+
 <canvas id="top" class="background"></canvas>
 <nav class="navbar navbar-inverse  navbar-fixed-top" >
 
 <div class="conatiner-fluid">
      <!--page scroll button for -->
    <div class="navbar-header" role="navigation" style="height:80px;">
-	   <a class="navbar-brand page-scroll" href="#top"><img src="/assets/lineuplogo.png" , alt="lineup" /></a>
+	   <a class="navbar-brand page-scroll" href="#top"><img src="/assets/lineuplogo.png"/></a>
+
    </div>	<!--page scroll button-->
    
    <div>
@@ -48,8 +50,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="animated bounceInDown" style="margin-top:450px; margin-bottom: 250px;">
-	        <h1 id="lineup-text"><strong><%="<lineUP/>"%></strong></h1>
-          <p>Lineup is an online time-off manager.</p>
+          
+	        <h1 id="lineup-text"><strong><%="<LineUP/>"%></strong></h1>
+          <h1 style="color:grey">_______________</h1>
+          <p>LineUP is an online time-off manager.</p>
           <a class="btn-default page-scroll" href="#info-1">get started</a>
 	        
         </div>
@@ -118,8 +122,8 @@
     <div class="row">
         <div id="info-3" class="col-md-12">
          	<img src="/assets/computer.png" />
-  	      <h2 class="animated fadeIn" style="color: black; margin: auto; text-align: center;">
-  	       Leave Management System
+  	      <h2 class="animated fadeIn heading">
+  	       Leave it to LineUP.
   	      </h2>
 
 	    </div>  
@@ -134,8 +138,8 @@
         <br>
   		
   			<img src="/assets/email-icon.png" , alt="..." />
-            <h1 style="margin:auto; font-size: 20px; text-align: center;">Calendars</h1>
-             <p>Track employees vacation, days off or remote work in Lineup shared calendars. Synchronize time off requests with Google Calendar.</p>
+            <h1 class="feature-h1">Calendars</h1>
+             <p>Track employees vacation, days off or remote work in LineUP shared calendars. Synchronize time off requests with Google Calendar.</p>
             
         </div>
        
@@ -144,8 +148,8 @@
         <br>
         	
         	<img src="/assets/email-icon.png" , alt="..." />
-	        <h1 style="margin:auto;; font-size: 20px;   text-align: center;">Approval</h1>
-	        <p>Lineup automates all notifications and a leave request approval process. Lineup has a flexible multilevel approval process which can reflect your company structure.</p>
+	        <h1 class="feature-h1">Approval</h1>
+	        <p>LineUP automates all notifications and a leave request approval process. LineUP has a flexible multilevel approval process which can reflect your company structure.</p>
 	        
 	      
 	    </div>  
@@ -153,9 +157,9 @@
         <div class="col-md-4 features">
         <br>
             
-            <img src="/assets/email-icon.png" , alt="..." />
-	        <h1 style="margin:auto; font-size: 20px;   text-align: center;"> Absence</h1>
-	        <p>In Lineup leave management software you can manage any kind of absence like PTO, sick leave, maternity leave, vacations, personal days and many other.</p>
+          <img src="/assets/email-icon.png" , alt="..." />
+	        <h1 class="feature-h1">Absence</h1>
+	        <p>In LineUP leave management software you can manage any kind of absence like PTO, sick leave, maternity leave, vacations, personal days and many other.</p>
 	       
 
 	    </div> 	 
@@ -168,8 +172,8 @@
 	        <div class="col-md-4 features">
 	        <br>
 	  		
-	  			<img src="/assets/email-icon.png" , alt="..." />
-	            <h1 style="margin:auto; font-size: 20px; text-align: center;">Attach</h1>
+	  			    <img src="/assets/email-icon.png" , alt="..." />
+	            <h1 class="feature-h1">Attach</h1>
 	             <p>Attach medical certificates and other required documents to absence requests. Managers and HR department have immediate access to all data in one place.</p>
 	            
 	        </div>
@@ -178,8 +182,8 @@
 	        <br>
 	        	
 	        	<img src="/assets/email-icon.png" , alt="..." />
-		        <h1 style="margin:auto; font-size: 20px; text-align: center;"> Converse</h1>
-		        <p>Comment your absence requests in Lineup. You can discuss your time-off directly in Calamari and be notified via e-mail or Slack when someone leaves a comment.</p>
+		       <h1 class="feature-h1"> Converse</h1>
+		        <p>Comment your absence requests in LineUP. You can discuss your time-off directly in LineUP and be notified via e-mail.</p>
 		        
 		      
 		    </div>  
@@ -187,9 +191,9 @@
 	        <div class="col-md-4 features">
 	        <br>
 	            
-	            <img src="/assets/email-icon.png" , alt="..." />
-		        <h1 style="margin:auto; font-size: 20px; text-align: center;"> Remote</h1>
-		        <p>Let your employees work remotely. You can use Lineup to manage a remote workforce. Calamari helps you to plan, track and communicate the remote work within your company.</p>
+	           <img src="/assets/email-icon.png" , alt="..." />
+		        <h1 class="feature-h1"> Remote</h1>
+		        <p>Let your employees work remotely. You can use LineUP to manage a remote workforce. LineUP helps you to plan, track and communicate the remote work within your company.</p>
 		       
 
 		    </div> 	 
@@ -214,11 +218,11 @@
 </div>
 
 
-<footer style="padding-bottom: 30px; font-size: 20px; text-align: left">
+<footer id= "footer" style="font-size: 20px; text-align: left">
     <div class="row">
       <div class="col-md-9">
         <div class="row first-row">
-          <div class="col-md-4"><strong><h1 style="color:white">Contacts:</h1></strong><br></div>
+          <div class="col-md-4"><strong><h1>Contacts:</h1></strong><br></div>
 
           <div class="col-md-4"></div>
 
