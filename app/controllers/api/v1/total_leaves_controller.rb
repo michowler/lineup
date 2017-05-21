@@ -12,7 +12,7 @@ class Api::V1::TotalLeavesController < Api::V1::ApplicationController
         sick = find_leave.where(leave_type: "4", status: "Approved").sum(:total_days).to_s
         non_paid = find_leave.where(leave_type: "5", status: "Approved").sum(:total_days).to_s
         respond_to do |format|
-            format.json { render :json => {:annual => annual, :maternity => maternity, :emergency => emergency, :study = > study, :sick => sick, :non_paid = non_paid}}
+            format.json { render :json => {:annual => annual, :maternity => maternity, :emergency => emergency, :study => study, :sick => sick, :non_paid => non_paid}}
         end
     end
     
