@@ -10,39 +10,23 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     #     end
     # end
 
-    # def index
-    #     users = Users.all
-    #     render json: users
-    # end
-    # def index
-    #     render json: "hi"
-    # end
-
-    #NEED TO DO manager name
     def show
         user = User.where(private_token: params[:private_token]).first
-        user_leave = user
-        user_leave = user_leave.id
-		user_leave = User.find(user_leave).leaves 
+        current_user = user
+        user_id = current_user.id
+        manager_id = current_user.manager_id
+        manager_name = User.find(manager_id).name
+		user_leave = User.find(user_id).leaves 
         user_leave = user_leave.as_json(only: [:leave_type, :start_date, :end_date, :total_days, :status])
         # manager = User.where(manager_id: 1)
         # user = user.to_json
         respond_to do |format|
-            format.json { render :json => {:user => user,
+            format.json { render :json => {:user => user, :manager_name => manager_name,
             :user_leave => user_leave}}
         # render json: user, status: :ok
         end
     end
 
-    # def user_leaves
-    #     user_leave = User.find(private_token: params[:private_token])
-	# 	user_leave = User.find(params[:id]).leaves
-    #     # user = user.leaves
-    #     user_leave = user.pluck(:leave_type, :start_date, :end_date, :total_days).to_s
-    #     return user
-    #     render json: user_leave, status: :ok
-    # end
-    
 end
 
 
