@@ -24,7 +24,7 @@ class UsersController < Clearance::UsersController
             flash[:success] = "User has been created."
             redirect_to "/hr/dashboard"
         else
-            flash.now[:danger] = @user.errors.full_messages.first
+            flash.now[:info] = @user.errors.full_messages.first
             render template: "users/new"
         end
     end

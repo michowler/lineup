@@ -1,5 +1,5 @@
-User.create(name:"employee",email:"employee@gmail.com",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,password: "abc")
-User.create(name:"hr",email:"hr@gmail.com",department: 1,manager_id: 3, private_token: "hr",total_leafe_id:1,password: "abc")
+User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,password: "employee@gmail.com")
+User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "hr",total_leafe_id:1,password: "hr@gmail.com")
 
 ActiveRecord::Base.transaction do
   40.times do |t|
@@ -11,7 +11,7 @@ ActiveRecord::Base.transaction do
   	user[:manager_id] = rand(3..42)
   	user[:phone_no] = Faker::PhoneNumber.cell_phone
   	user[:address] = Faker::Address.street_address
-  	user[:private_token] = user[:name]
+  	user[:private_token] = user[:email]
   	user[:total_leafe_id] = t+1
   	user.save
   	user.update(password: "abc")
