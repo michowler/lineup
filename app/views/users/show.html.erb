@@ -1,51 +1,34 @@
 
 <div class="col-lg-12">
-<h1 class="page-header">Welcome <%= @user.name %></h1>
+  <h1 class="page-header">Welcome <%= @user.name %></h1>
+  <%= link_to "Edit Profile", edit_user_path(@user)%>
 </div>
 
-  <div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
-
   <% if current_user && current_user.id == @user.id %>
-  
-  <h2>Leaves</h2>
-    <table class="table">
-      <tr>
-        <th>Title</th>
-        <th>Actions</th>
-      </tr>
-
-      <% @user.leaves.each do |leave| %>
-        <tr>
-          <td><%= link_to leave.leave_type, leave %></td>
-          <td><%= link_to leave.leave_type, leave %></td>
-          
-        </tr>
-      <% end %>
-    </table>
-
-
      <h2>Leaves</h2>
-       <table class="table">
-         <tr>
-           <th>leave_type</th>
+       <table class="table table-inverse">
+         <tr scope="row">
+           <th>Type</th>
            <th>Start Date</th>
            <th>End Date</th>
            <th>Status</th>
            <th>Total days</th>
-           <th>Actions</th>
+          
          </tr>
 
          <% @user.leaves.each do  |leave| %>
-           <tr>
+           <tr scope="row">
              <td><%= link_to leave.leave_type, leave %></td>
              <td><%= leave.start_date.strftime('%d %B %Y') %></td>
              <td><%= leave.end_date.strftime('%d %B %Y') %></td>
              <td><%= leave.status %></td>
              <td> <%= leave.total_days %></td>
-             <td> <%= leave.total_days %></td>
+             
            </tr>
          <% end %>
        </table>
+
+
    <%end%>
 
 
