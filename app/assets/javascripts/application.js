@@ -90,8 +90,11 @@ document.addEventListener("turbolinks:load",function(){
         this.previousTop = currentTop;
     });
     
-
-
+    window.onload = function() {
+      Particles.init({
+        selector: '.background'
+      });
+    };
     
 })
 

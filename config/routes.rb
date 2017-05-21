@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       resources :users, only: [:show, :user_show]
       resources :leaves, only: [:create, :destroy]
+      resources :total_leaves, only: [:total_leaves]
     end
   end
   

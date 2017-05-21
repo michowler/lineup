@@ -2,7 +2,24 @@
 body, html {
     height: auto; 
      width: 100%;  
+     min-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
 
+}
+
+#lineup-text {
+    color: white;
+    text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+    font-size:80px;
+   
+}
+
+.features {
+    display:inline;
+    text-align:center;
+    padding-top:250px;
+    margin:auto;
 }
 
 .fa {
@@ -25,7 +42,7 @@ body, html {
 
 .parallax {
     /* The image used */
-    background-image: url('/assets/mountain.jpg');
+
 
     /* Full height */
     height: 100%; 
@@ -43,31 +60,6 @@ body, html {
     .parallax {
         background-attachment: scroll;
     }
-}
-
-#parallax2 {
-    background-image: url('/assets/lemonchiffon.jpg') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-#parallax3 {
-    background-image: url('/assets/lightblue.jpg') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#parallax4 {
-    background-image: url('/assets/lightblue.jpg') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 #parallax5 {
@@ -91,7 +83,6 @@ ul > btn {
     display:inline;
     text-align:center;
 }
-
 
 ul {
     padding:0;
@@ -141,7 +132,8 @@ ul.social-icons {
 .fa-twitter:hover {
     background-color: #00aced;
 }
-.fa-rss {
+
+.fa-github {
     padding:10px 14px;
     -o-transition:.5s;
     -ms-transition:.5s;
@@ -150,12 +142,12 @@ ul.social-icons {
     transition: .5s;
     background-color: #322f30;
 }
-.fa-rss:hover {
-    background-color: #ADD8E6;
+.fa-github:hover {
+    background-color: #dd73a4;
 }
 
 .fa-linkedin {
-    padding:10px 14px;
+    padding:10px 9px;
     -o-transition:.5s;
     -ms-transition:.5s;
     -moz-transition:.5s;
@@ -164,8 +156,9 @@ ul.social-icons {
     background-color: #322f30;
 }
 .fa-linkedin:hover {
-    background-color: #0073a4;
+    background-color: #FFB6C1;
 }
+
 .fa-google-plus {
     padding:10px 9px;
     -o-transition:.5s;
@@ -176,7 +169,7 @@ ul.social-icons {
     background-color: #322f30;
 }
 .fa-google-plus:hover {
-    background-color: #F08080;
+    background-color: orange;
 }
 
 .btn-outline {
@@ -204,3 +197,9 @@ nav.navbar.transparent {
   background-color:transparent;
 }
 
+.footer-fa {
+
+margin-left:2%;
+float:left; 
+
+}
