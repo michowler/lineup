@@ -59,6 +59,21 @@ class UsersController < Clearance::UsersController
       redirect_to "/users"
     end
 
+    def pending
+      user = User.find(params[:id])
+      @leaves = user.leaves.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date")
+    end
+
+    def history
+      user = User.find(params[:id])
+      @leaves = user.leaves.where("start_date < ?", Date.today).order("start_date DESC")
+    end
+
+    def upcoming
+      user = User.find(params[:id])
+      @leaves = user.leaves.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date")
+    end
+
 
   private
 

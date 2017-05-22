@@ -4,5 +4,7 @@ class HrsController < ApplicationController
 		session[:path] = request.fullpath
 	end
 
+	def statistics
+	end
 	
 end

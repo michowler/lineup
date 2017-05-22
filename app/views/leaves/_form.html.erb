@@ -16,10 +16,11 @@
 	<div class="form-group">
 	<%=form.label :end_date%>
 	<%=form.text_field :end_date, class: "datepicker form-control", id: "datepicker2", required: true%>
-
+	</div>
+	
 	<div class="form-group">
 	<%= form.label :upload_images %>
-    <%= form.file_field :images %>
+    <%= form.file_field :images, class: "form-control" %>
 	</div>
 
 <%= javascript_tag do%>

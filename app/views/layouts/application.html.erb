@@ -5,9 +5,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear" rel="stylesheet">
-  <%= javascript_include_tag :defaults, "nested_form" %>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <%= javascript_include_tag 'application' %>
-  
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -65,6 +64,10 @@
     <%= yield %>
 
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.2/particles.js"></script>
     <script>
         var options = {
       "particles": {
@@ -177,18 +180,14 @@
       "retina_detect": true
     };
         particlesJS("particle", options); 
+    
     </script>
 
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-
-    <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.2/particles.js"></script>
+    
    
 
   <%end%>
 
   </div>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
 </html>

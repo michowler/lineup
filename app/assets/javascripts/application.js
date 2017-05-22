@@ -50,7 +50,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $('.glyphicon-ok').click(function(){
         url = $(this).attr("id")
-        $('a').attr("href",url)
+        $('#approveModal a').attr("href",url)
     });
 
 
