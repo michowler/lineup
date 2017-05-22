@@ -70,7 +70,7 @@ class UsersController < Clearance::UsersController
   # end
 
 	def user_params
-		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
+		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar, :remove_avatar, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
 	end 
 
   def create_params

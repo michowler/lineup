@@ -15,11 +15,17 @@
    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: rgba(255,255,255,0.5); width:100%;">
 
       <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
+      <li>
+        <% if @user.avatar? %>
+           <%= image_tag current_user.avatar.url(:thumb), :class => "img-responsive img-circle" %>
+        <%end%>
+      </li>
        <li>
          <div class="dropdown">
            <button class="dropbtn"><%=current_user.name%></button>
            <div class="dropdown-content">
-            <%if current_user.position != "Human Resource" %>
+
+            <%if current_user.department != "Human Resource" %>
             <%= link_to "Settings", edit_user_path(current_user)%>
             <%end%>
 
