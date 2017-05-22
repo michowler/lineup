@@ -11,33 +11,10 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         render json: {message: "Request sent"}
     end
     
-    # def show
-    #     leaves = Leafe.where(private_token: params[:private_token])
-    #     render json: leaves, status: :ok
-    # end
-
-    #so they can update their leave request
-    # def update
-    #     leafe = Leafe.find(private_token: params[:private_token])
-    #     leafe.user_id = current_user.id
-    #     leafe.update(update_params)
-    #     leafe.update(total_days: leafe.weekdays)
-    # end
-    
-    # def approve
-    #     leafe = Leafe.where(private_token: params[:private_token])
-    #     leafe = leafe.update(status: "Approved")
-    #     render json: leafe, status: :ok
-    # end
-    
-    #comeback and do this
     def destroy
-        byebug
-        user = User.where(private_token: params[:private_token]).first
-        user_id = user.id
-        leafe = User.find(user_id).leaves
-        leafe = Leafe.find(params[:id)
+        leafe = Leafe.find(params[:id])
         leafe.destroy
+        render json: {message: "Request deleted"}
     end
     
 

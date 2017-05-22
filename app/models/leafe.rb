@@ -1,6 +1,6 @@
 class Leafe < ApplicationRecord
 	mount_uploaders :images, AvatarsUploader
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 
 	enum leave_type: ["Annual", "Maternity", "Emergency", "Study", "Sick","Non_paid"]
 	enum status: ["Pending","Approved","Rejected"]
