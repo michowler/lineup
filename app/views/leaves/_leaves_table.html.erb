@@ -47,11 +47,13 @@
 		<i class="glyphicon glyphicon-info-sign"></i>
 	<%end%>
 </td>
+<%if l.start_date >= Date.today%>
 <td>
 	<%=link_to edit_leafe_path(l), "data-toggle"=> "tooltip", title: "Edit", remote: true do%>
 		<i class="glyphicon glyphicon-pencil"></i>
 	<%end%>
 </td>
+<%end%>
 </tr>
 <%end%>
 </tbody>
