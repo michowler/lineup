@@ -19,7 +19,9 @@
          <div class="dropdown">
            <button class="dropbtn"><%=current_user.name%></button>
            <div class="dropdown-content">
+            <%if current_user.position != "Human Resource" %>
             <%= link_to "Settings", edit_user_path(current_user)%>
+            <%end%>
 
            </div>
          </div>
@@ -68,10 +70,10 @@
           }
         },
         "color": {
-          "value": "#ffffff"
+          "value": "#FFB6C1"
         },
         "shape": {
-          "type": "circle",
+          "type": "star",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -108,8 +110,8 @@
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
+          "color": "#FFB6C1",
+          "opacity": 0.2,
           "width": 1
         },
         "move": {
@@ -149,7 +151,7 @@
           },
           "bubble": {
             "distance": 400,
-            "size": 40,
+            "size": 30,
             "duration": 2,
             "opacity": 8,
             "speed": 3
