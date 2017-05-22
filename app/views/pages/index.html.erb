@@ -1,8 +1,6 @@
 
 <% if !signed_in? %>
 
-
-<canvas id="top" class="background"></canvas>
 <nav class="navbar navbar-inverse  navbar-fixed-top" >
 
 <div class="conatiner-fluid">
@@ -46,20 +44,24 @@
 </div>
 
 
-<div class="parallax" id= "parallax4">
+<div id="top" class="parallax" id= "parallax4">
+
     <div class="row">
       <div class="col-md-12">
-        <div class="animated bounceInDown" style="margin-top:350px; margin-bottom: 250px;">
-          <%= link_to(image_tag("/assets/animaticons/diamond/animat-diamond-color.gif")) %>
+        <div class="animated bounceInDown" style="margin: 230px;">
+          
 	        <h1 id="lineup-text"><strong><%="<LineUP/>"%></strong></h1>
           <h1 style="color:grey">_______________</h1>
           <p>LineUP is an online time-off manager.</p>
           <a class="btn-default page-scroll" href="#info-1">get started</a>
-	   
+
         </div>
+      
 	    </div>      
 	  </div>
+    <div id="overylay"><div id="particle"></div></div>
 </div>
+
 
 <div class="parallax" id= "parallax5" style="margin:auto; padding-bottom: 50px;">
     <div id="info-1" class="row">
@@ -241,6 +243,7 @@
           </ul>
       </div> 
  
+ <canvas class="background"></canvas>
 
     </div>
 </footer>
