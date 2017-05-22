@@ -20,9 +20,10 @@ class UsersController < Clearance::UsersController
     def create
         @user = User.new(create_params)
         if @user.save
-          @user.update(password: @user.email,private_token: @user.email)
-            flash[:success] = "User has been created."
-            redirect_to "/hr/dashboard"
+          rl = RemainingLeafe.create(@user.total_leafe.attributes.slice!(:id))
+          @user.update(password: @user.email,private_token: @user.email,remaining_leafe_id: rl.id)
+          flash[:success] = "User has been created."
+          redirect_to "/hr/dashboard"
         else
             flash.now[:info] = @user.errors.full_messages.first
             render template: "users/new"
@@ -35,9 +36,7 @@ class UsersController < Clearance::UsersController
     
     def update
         @user = User.find(params[:id])
-        if @user.save
-            @user.update(user_params)
-            sign_in @user
+        if @user.update(user_params)
             flash[:success] = "Update successful!"
             redirect_to @user
         else
@@ -73,11 +72,11 @@ class UsersController < Clearance::UsersController
   # end
 
 	def user_params
-		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar)
+		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
 	end 
 
   def create_params
-    params.require(:user).permit(:name, :position, :email, :department, :manager_id, :phone_no, :address, :avatar,:password)
+    params.require(:user).permit(:name, :position, :email, :department, :manager_id, :phone_no, :address, :avatar,:password, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
   end 
 
 

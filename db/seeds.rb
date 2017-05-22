@@ -23,12 +23,12 @@ ActiveRecord::Base.transaction do
   42.times do |t|
   	total_leafe = TotalLeafe.new
   	total_leafe[:user_id] = t+1
-  	total_leafe[:annual] = rand(0..10)
-  	total_leafe[:maternity] = rand(0..10)
-  	total_leafe[:non_paid] = rand(0..10)
-  	total_leafe[:study] = rand(0..10)
-  	total_leafe[:sick] = rand(0..10)
-  	total_leafe[:emergency] = rand(0..10)
+  	total_leafe[:annual] = 10
+  	total_leafe[:maternity] = 10
+  	total_leafe[:non_paid] = 10
+  	total_leafe[:study] = 10
+  	total_leafe[:sick] = 10
+  	total_leafe[:emergency] = 10
   	total_leafe.save
     RemainingLeafe.create(total_leafe.attributes)
   end
