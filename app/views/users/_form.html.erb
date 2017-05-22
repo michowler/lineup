@@ -37,9 +37,6 @@
   <%= form.label :manager %>
   <%= form.select :manager_id, options_for_select(User.where(position: "Manager").order("name").pluck(:name,:id), selected: @user.manager_id),{:prompt => "Select Manager"}, {class: "form-control"} %>
 </div>
+<br>
 
-<div class="form-group">
-
-  <%= form.hidden_field :password, value: "abc"%>
-</div>
 
