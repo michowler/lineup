@@ -23,7 +23,7 @@
      <%= image_tag(current_user.avatar.url) %>
      <%= form.label :remove_avatar do %>
        <%= form.check_box :remove_avatar %>
-       <% @user.remove_avatar!%>
+       <% current_user.remove_avatar!%>
        Remove avatar
       <% end %>
   <% else %>
