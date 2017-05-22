@@ -23,7 +23,7 @@
 					<i class="glyphicon glyphicon-info-sign"></i>
 				<%end%>
 			</td>
-			<%if l.status == "Pending"%>
+			<%if l.status == "Pending" && l.start_date >= Date.today%>
 			<td>
 				<%=link_to edit_leafe_path(l), "data-toggle"=> "tooltip", title: "Edit", remote: true do%>
 					<i class="glyphicon glyphicon-pencil"></i>
