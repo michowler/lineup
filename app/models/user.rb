@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :leaves, dependent: :destroy
   belongs_to :manager, class_name: "User"
   belongs_to :total_leafe, class_name: "TotalLeafe"
+  belongs_to :remaining_leafe
   has_many :members, class_name: "User", foreign_key: :manager_id
 
   validates_confirmation_of :password

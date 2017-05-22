@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522042914) do
+ActiveRecord::Schema.define(version: 20170522050516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20170522042914) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "images"
+    t.index ["manager_id"], name: "index_leaves_on_manager_id", using: :btree
+    t.index ["user_id"], name: "index_leaves_on_user_id", using: :btree
+  end
+
+  create_table "remaining_leaves", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "annual"
+    t.integer  "maternity"
+    t.integer  "non_paid"
+    t.integer  "study"
+    t.integer  "sick"
+    t.integer  "emergency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_remaining_leaves_on_user_id", using: :btree
   end
 
   create_table "total_leaves", force: :cascade do |t|
@@ -38,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170522042914) do
     t.integer "study"
     t.integer "sick"
     t.integer "emergency"
+    t.index ["user_id"], name: "index_total_leaves_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,9 +73,13 @@ ActiveRecord::Schema.define(version: 20170522042914) do
     t.string   "remember_token",      limit: 128, null: false
     t.integer  "total_leafe_id"
     t.integer  "total_annual_leaves"
+    t.integer  "remaining_leafe_id"
     t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["manager_id"], name: "index_users_on_manager_id", using: :btree
     t.index ["name"], name: "index_users_on_name", using: :btree
+    t.index ["remaining_leafe_id"], name: "index_users_on_remaining_leafe_id", using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
+    t.index ["total_leafe_id"], name: "index_users_on_total_leafe_id", using: :btree
   end
 
 end

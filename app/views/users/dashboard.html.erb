@@ -54,7 +54,7 @@
 				<tr>
 					<td><%=key.capitalize%></td>
 					<td><%=value%></td>
-					<td><%=value-current_user.leaves.where(leave_type: key.capitalize).count%></td>
+					<td><%=current_user.remaining_leafe.send(key)%></td>
 				</tr>
 			<%end%>
 			</tbody>
