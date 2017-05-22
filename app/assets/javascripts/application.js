@@ -67,7 +67,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $(window).scroll(function () {
         if ($(window).scrollTop() >= 50) {
-        $('.navbar').css('background','black');
+        $('.navbar').css('background','rgba(255,255,255,0.5)');
         } 
         else {
         $('.navbar').css('background','transparent');
