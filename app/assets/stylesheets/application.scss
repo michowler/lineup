@@ -34,7 +34,7 @@ body {
 
 .wrapper {
 	padding: 0 50px;
-	min-height: 568px;
+	min-height: 1000px;
 	margin: 20px 0 0 100px;
 }
 
@@ -86,4 +86,12 @@ body {
 
 .pagination a li.active {
   color: #fff;
+}
+
+rect {
+  fill-opacity:0;
+}
+
+line {
+  stroke: aquamarine;
 }

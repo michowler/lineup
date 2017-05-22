@@ -17,11 +17,14 @@
       ]);
 
       var options = {
-        chart: {
-          title: 'Absentees every month'
-        },
+        title: 'Absentees every month',
         height: 500,
-        legend: {position: 'none'}
+        legend: {position: 'none'},
+        backgroundColor: { fill:'transparent' },
+        animation:{
+          duration: 1000,
+          easing: 'out',
+        }
       };
 
       var chart = new google.charts.Line(document.getElementById('chart_div'));
