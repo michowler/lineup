@@ -24,10 +24,15 @@ class LeavesController < ApplicationController
 
 	def create
 		@leafe = Leafe.new(create_params)
-		@leafe.save
-		@leafe.update(total_days: @leafe.weekdays)
-		flash[:success] = "Request submitted"
-		redirect_to leafe_path(@leafe)
+		if @leafe.has_remaining?
+			@leafe.total_days = @leafe.weekdays
+			@leafe.save
+			flash[:success] = "Request submitted"
+			redirect_to leafe_path(@leafe)
+		else
+			flash.now[:danger] = "Requested days has exceeded your remaining leaves"
+			render "new"
+		end
 	end
 
 	def edit
@@ -39,10 +44,18 @@ class LeavesController < ApplicationController
 
 	def update
 		@leafe = Leafe.find(params[:id])
-		@leafe.update(update_params)
-		@leafe.update(total_days: @leafe.weekdays)
-		flash[:success] = "Request Updated"
-		redirect_to session[:path]
+		@leafe.attributes = update_params
+		if @leafe.has_remaining?
+			@leafe.total_days = @leafe.weekdays
+			@leafe.save
+			flash[:success] = "Request Updated"
+			redirect_to session[:path]
+		else
+			flash.now[:danger] = "Requested days has exceeded your remaining leaves"
+			respond_to do |format|
+				format.js
+			end
+		end
 	end
 
 	def approve

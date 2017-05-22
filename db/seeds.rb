@@ -1,5 +1,5 @@
-User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,password: "employee@gmail.com")
-User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 0,manager_id: 3, private_token: "hr",total_leafe_id:1,password: "hr@gmail.com")
+User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,remaining_leafe_id:1,password: "employee@gmail.com")
+User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 0,manager_id: 3, private_token: "hr",total_leafe_id:2,remaining_leafe_id:2,password: "hr@gmail.com")
 
 ActiveRecord::Base.transaction do
   40.times do |t|
@@ -13,6 +13,7 @@ ActiveRecord::Base.transaction do
   	user[:address] = Faker::Address.street_address
   	user[:private_token] = user[:email]
   	user[:total_leafe_id] = t+1
+    user[:remaining_leafe_id] = t+1
   	user.save
   	user.update(password: "abc")
   end
@@ -28,7 +29,7 @@ ActiveRecord::Base.transaction do
   	leafe[:status] = rand(0..2)
   	leafe[:rejection_reason] = Faker::Hipster.sentence
   	leafe[:start_date] = Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
-  	leafe[:end_date] = leafe[:start_date]+rand(0..20)
+  	leafe[:end_date] = leafe[:start_date]+rand(1..3)
   	leafe[:total_days] = leafe.weekdays
   	leafe.save
   end
@@ -48,3 +49,19 @@ ActiveRecord::Base.transaction do
   end
 end
 
+ActiveRecord::Base.transaction do
+  42.times do |t|
+    remaining_leafe = RemainingLeafe.new
+    remaining_leafe[:user_id] = t+1
+    user = User.find(t+1)
+    total_leafe = TotalLeafe.find(t+1)
+    leaves = user.leaves.where(status: "Approved")
+    remaining_leafe[:annual] = total_leafe.annual-leaves.where(leave_type: "Annual").sum(:total_days)
+    remaining_leafe[:maternity] = total_leafe.maternity-leaves.where(leave_type: "Maternity").sum(:total_days)
+    remaining_leafe[:non_paid] = total_leafe.non_paid-leaves.where(leave_type: "Non_paid").sum(:total_days)
+    remaining_leafe[:study] = total_leafe.study-leaves.where(leave_type: "Study").sum(:total_days)
+    remaining_leafe[:sick] = total_leafe.sick-leaves.where(leave_type: "Sick").sum(:total_days)
+    remaining_leafe[:emergency] = total_leafe.emergency-leaves.where(leave_type: "Emergency").sum(:total_days)
+    remaining_leafe.save
+  end
+end
