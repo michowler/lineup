@@ -1,5 +1,5 @@
 User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,password: "employee@gmail.com")
-User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "hr",total_leafe_id:1,password: "hr@gmail.com")
+User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 0,manager_id: 3, private_token: "hr",total_leafe_id:1,password: "hr@gmail.com")
 
 ActiveRecord::Base.transaction do
   40.times do |t|
