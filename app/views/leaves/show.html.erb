@@ -2,25 +2,25 @@
 <h1 >Request's Details</h1>
 </div>
 
-<table class="table">
-	<tbody class="table">
+<table class="table table-inverse">
+	<tbody class="table table-inverse">
 		<tr>
-		<th class="text-left">Name:</th>
+		<th class="thead-inverse">Name:</th>
 		<td class="text-left"><%=@leafe.user.name%></td>
 
 		</tr>
 		<tr>
-		<th class="text-left">Manager: </th>
+		<th class="thead-inverse">Manager: </th>
 		<td class="text-left"><%=@leafe.user.manager.name if @leafe.user.manager != nil%> </td>
 
 		</tr>
 		<tr>
-		<th class="text-left">Reason: </th>
+		<th class="thead-inverse">Reason: </th>
 		<td class="text-left"><%=@leafe.leave_reason%></td>
 
 		</tr>
 		<tr>
-		<th class="text-left">Status: </th>
+		<th class="thead-inverse">Status: </th>
 		<td class="text-left"><%=@leafe.status%>
 		<%if @leafe.status == "Rejected"%>
 			<p>Reason of Rejection: <%=@leafe.rejection_reason%></p>
@@ -28,17 +28,17 @@
 
 		</tr>
 		<tr>
-		<th class="text-left">Start Date: </th>
+		<th class="thead-inverse">Start Date: </th>
 		<td class="text-left"><%=@leafe.start_date%></td>
 
 		</tr>
 		<tr>
-		<th class="text-left">End Date: </th>
+		<th class="thead-inverse">End Date: </th>
 		<td class="text-left"><%=@leafe.end_date%></td>
 
 		</tr>
 		<tr>
-		<th class="text-left">Total Days: </th>
+		<th class="thead-inverse">Total Days: </th>
 		<td class="text-left"><%=@leafe.total_days%></td>
 
 		</tr>
