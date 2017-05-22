@@ -15,7 +15,15 @@
    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: rgba(255,255,255,0.5); width:100%;">
 
       <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
-       <li class="username"><%=current_user.name%></li>
+       <li>
+         <div class="dropdown">
+           <button class="dropbtn"><%=current_user.name%></button>
+           <div class="dropdown-content">
+            <%= link_to "Settings", edit_user_path(current_user)%>
+
+           </div>
+         </div>
+        </li>
        <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %></li>
       </ul>
   </div> <!--ul-li-->
