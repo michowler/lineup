@@ -6,6 +6,41 @@
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
+    <strong>Allocate Number of Leave:</strong><br><br>
+	<%=form.fields_for :total_leafe, TotalLeafe.new do |f|%>
+
+	<div class="form-group">
+	  <%= f.label :annual%>
+	  <%= f.number_field :annual, class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :maternity%>
+	  <%= f.number_field :maternity, class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :emergency%>
+	  <%= f.number_field :emergency, class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :study%>
+	  <%= f.number_field :study, class: "form-control"%>
+	</div>
+
+	<div class="form-group">
+	  <%= f.label :sick%>
+	  <%= f.number_field :sick, class: "form-control"%>
+	</div>
+
+	<%end%>
+
+	<div class="form-group">
+
+    <%= form.hidden_field :password, value: "abc"%>
+	</div>
+
     <div class="submit-field">
       <%= form.submit "Submit", class: "btn btn-default"%>
     </div>
