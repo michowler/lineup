@@ -17,7 +17,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%@user.each do |u|%>
+		<%@users.each do |u|%>
 		<tr>
 			<td><%=u.id%></td>
 			<td><%=u.name%></td>
@@ -39,8 +39,10 @@
 
 		</tr>
 		<%end%>
+		
 	</tbody>
 </table>
+<%= will_paginate @users,renderer: BootstrapPagination::Rails, previous_label: "Back", next_label: "More", inner_window: 1, outer_window: 0 %>
 
 <div id="deleteModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

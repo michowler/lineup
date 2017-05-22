@@ -14,11 +14,19 @@
    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: rgba(255,255,255,0.5); width:100%;">
 
       <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
+      <li>
+        <% if current_user.avatar? %>
+           <%= image_tag current_user.avatar.url(:thumb), :class => "img-responsive img-circle" %>
+        <%end%>
+      </li>
        <li>
          <div class="dropdown">
            <button class="dropbtn"><%=current_user.name%></button>
            <div class="dropdown-content">
+
+            <%if current_user.department != "Human Resource" %>
             <%= link_to "Settings", edit_user_path(current_user)%>
+            <%end%>
 
            </div>
          </div>
@@ -71,10 +79,10 @@
           }
         },
         "color": {
-          "value": "#ffffff"
+          "value": "#FFB6C1"
         },
         "shape": {
-          "type": "circle",
+          "type": "star",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -111,8 +119,8 @@
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
+          "color": "#FFB6C1",
+          "opacity": 0.2,
           "width": 1
         },
         "move": {
@@ -152,7 +160,7 @@
           },
           "bubble": {
             "distance": 400,
-            "size": 40,
+            "size": 30,
             "duration": 2,
             "opacity": 8,
             "speed": 3
