@@ -47,6 +47,7 @@ class UsersController < Clearance::UsersController
     end
     
     def dashboard
+      session[:path] = request.fullpath
     end
 
 
