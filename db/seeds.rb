@@ -1,5 +1,5 @@
-User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,remaining_leafe_id:1,password: "employee@gmail.com")
-User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 0,manager_id: 3, private_token: "hr",total_leafe_id:2,remaining_leafe_id:2,password: "hr@gmail.com")
+User.create(name:"employee",email:"employee@gmail.com",position: "Employee",department: 1,manager_id: 3, private_token: "employee",total_leafe_id:1,remaining_leafe_id:1,password: "abc")
+User.create(name:"hr",email:"hr@gmail.com",position: "Employee",department: 0,manager_id: 3, private_token: "hr",total_leafe_id:2,remaining_leafe_id:2,password: "abc")
 
 ActiveRecord::Base.transaction do
   40.times do |t|
@@ -23,12 +23,12 @@ ActiveRecord::Base.transaction do
   42.times do |t|
   	total_leafe = TotalLeafe.new
   	total_leafe[:user_id] = t+1
-  	total_leafe[:annual] = rand(0..10)
-  	total_leafe[:maternity] = rand(0..10)
-  	total_leafe[:non_paid] = rand(0..10)
-  	total_leafe[:study] = rand(0..10)
-  	total_leafe[:sick] = rand(0..10)
-  	total_leafe[:emergency] = rand(0..10)
+  	total_leafe[:annual] = 10
+  	total_leafe[:maternity] = 10
+  	total_leafe[:non_paid] = 10
+  	total_leafe[:study] = 10
+  	total_leafe[:sick] = 10
+  	total_leafe[:emergency] = 10
   	total_leafe.save
     RemainingLeafe.create(total_leafe.attributes)
   end

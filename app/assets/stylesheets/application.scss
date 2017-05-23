@@ -20,7 +20,8 @@ body {
 }
 
 .page-header{
-
+  font-family: 'Yesteryear', sans-serif;
+  font-size:50px;
 	padding-bottom:9px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 50px;
@@ -33,7 +34,7 @@ body {
 
 .wrapper {
 	padding: 0 50px;
-	min-height: 568px;
+	min-height: 1000px;
 	margin: 20px 0 0 100px;
 }
 
@@ -81,4 +82,16 @@ body {
 #overlay {
   position:relative;
 
+}
+
+.pagination a li.active {
+  color: #fff;
+}
+
+rect {
+  fill-opacity:0;
+}
+
+line {
+  stroke: aquamarine;
 }

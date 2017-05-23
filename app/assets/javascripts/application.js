@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require moment 
@@ -49,7 +50,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $('.glyphicon-ok').click(function(){
         url = $(this).attr("id")
-        $('a').attr("href",url)
+        $('#approveModal a').attr("href",url)
     });
 
 
@@ -111,3 +112,4 @@ function yesterday(date){
     if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
     return $yyyy+'-'+$mm+'-'+$dd;
 }
+

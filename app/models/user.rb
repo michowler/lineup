@@ -4,8 +4,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :leaves, dependent: :destroy
   belongs_to :manager, class_name: "User"
-  belongs_to :total_leafe, class_name: "TotalLeafe"
-  belongs_to :remaining_leafe
+  belongs_to :total_leafe, class_name: "TotalLeafe",dependent: :destroy
+  belongs_to :remaining_leafe,dependent: :destroy
   has_many :members, class_name: "User", foreign_key: :manager_id
 
   validates_confirmation_of :password
@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   enum position: ["Employee","Manager"]
   enum department: ["Human Resource","Accounting","Marketing"]
+
+  accepts_nested_attributes_for :total_leafe, :allow_destroy => true
   
   # def self.authenticate!(email, password)
   #   byebug

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :leaves
   end
   get "/user_dashboard" => "users#dashboard"
+  get "/users/:id/pending" => "users#pending"
+  get "/users/:id/upcoming" => "users#upcoming"
+  get "/users/:id/history" => "users#history"
 
   #api for mobile
   namespace :api do
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
   post "/leafe/reject/:id" => "leaves#reject"
   get "/leafe/details/:id" => "leaves#details"
   get "/hr/dashboard" => "hrs#dashboard"
+  get "/hr/statistics" => 'hrs#statistics'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   match '*path' => redirect('/'), via: :get unless Rails.env.development?
 end

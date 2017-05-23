@@ -7,6 +7,14 @@
     <br><br><br><br><br>
        <ul>
            <li>
+               <a href="/users/<%=current_user.id%>">
+                  <i class="fa fa-user-circle fa-2x"></i>
+                   <span class="nav-text">
+                       Profile
+                   </span>
+               </a>
+           </li>
+           <li>
                <a href="/user_dashboard">
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
@@ -22,20 +30,19 @@
                        Apply Leaves
                    </span>
                </a>
-             
            </li>
         
            <li class="has-subnav">
-               <a href="#">
+               <a href="/users/<%=current_user.id%>/pending">
                   <i class="fa fa-hourglass-half fa-2x"></i>
                    <span class="nav-text">
-                       Request
+                       Requests
                    </span>
                </a>
                
            </li>
            <li class="has-subnav">
-               <a href="#">
+               <a href="/users/<%=current_user.id%>/upcoming">
                   <i class="fa fa-plane fa-2x"></i>
                    <span class="nav-text">
                        Upcoming
@@ -44,7 +51,7 @@
               
            </li>
            <li>
-               <a href="#">
+               <a href="/users/<%=current_user.id%>/history">
                    <i class="fa fa-list fa-2x"></i>
                    <span class="nav-text">
                        History
@@ -59,14 +66,7 @@
                    </span>
                </a>
            </li>       
-           <li>
-               <a href="/users/<%=current_user.id%>">
-                  <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Profile
-                   </span>
-               </a>
-           </li>
+          
        </ul>
       
    </nav>

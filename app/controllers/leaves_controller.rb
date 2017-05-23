@@ -1,16 +1,16 @@
 class LeavesController < ApplicationController
 
 	def index
-		@leaves = Leafe.where("start_date <= ?", Date.today).order("start_date DESC").includes(:user)
+		@leaves = Leafe.where("start_date < ?", Date.today).order("start_date DESC").includes(:user).paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def pending
-		@leaves = Leafe.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user)
+		@leaves = Leafe.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user).paginate(:page => params[:page], :per_page => 5)
 		session[:path] = request.fullpath
 	end
 
 	def upcoming
-		@leaves = Leafe.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user)
+		@leaves = Leafe.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date").includes(:user).paginate(:page => params[:page], :per_page => 5)
 		session[:path] = request.fullpath
 	end
 
@@ -62,14 +62,14 @@ class LeavesController < ApplicationController
 		@leafe = Leafe.find(params[:id])
 		@leafe.update(status: "Approved")
 		flash[:success] = "Request Approved"
-		redirect_to "/hr/pending_leaves"
+		redirect_to session[:path]
 	end
 
 	def reject
 		@leafe = Leafe.find(params[:id])
 		@leafe.update(reject_params)
 		flash[:info] = "Request Rejected"
-		redirect_to "/pending_leaves"
+		redirect_to session[:path]
 	end
 
 	def details

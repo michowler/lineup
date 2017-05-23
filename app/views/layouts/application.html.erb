@@ -5,9 +5,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear" rel="stylesheet">
-
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <%= javascript_include_tag 'application' %>
-  
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -15,7 +14,23 @@
    <div class="collapse navbar-collapse" id="myNavbar" style="background-color: rgba(255,255,255,0.5); width:100%;">
 
       <ul class="nav navbar-nav navbar-right" style="margin:auto; padding:15px;">
-       <li class="username"><%=current_user.name%></li>
+      <li>
+        <% if current_user.avatar? %>
+           <%= image_tag current_user.avatar.url(:thumb), :class => "img-responsive img-circle" %>
+        <%end%>
+      </li>
+       <li>
+         <div class="dropdown">
+           <button class="dropbtn"><%=current_user.name%></button>
+           <div class="dropdown-content">
+
+            <%if current_user.department != "Human Resource" %>
+            <%= link_to "Settings", edit_user_path(current_user)%>
+            <%end%>
+
+           </div>
+         </div>
+        </li>
        <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %></li>
       </ul>
   </div> <!--ul-li-->
@@ -49,6 +64,10 @@
     <%= yield %>
 
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.2/particles.js"></script>
     <script>
         var options = {
       "particles": {
@@ -60,10 +79,10 @@
           }
         },
         "color": {
-          "value": "#ffffff"
+          "value": "#fff"
         },
         "shape": {
-          "type": "circle",
+          "type": "star",
           "stroke": {
             "width": 0,
             "color": "#000000"
@@ -100,8 +119,8 @@
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
+          "color": "#FFB6C1",
+          "opacity": 0.2,
           "width": 1
         },
         "move": {
@@ -141,7 +160,7 @@
           },
           "bubble": {
             "distance": 400,
-            "size": 40,
+            "size": 30,
             "duration": 2,
             "opacity": 8,
             "speed": 3
@@ -161,18 +180,14 @@
       "retina_detect": true
     };
         particlesJS("particle", options); 
+    
     </script>
 
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-
-    <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.2/particles.js"></script>
+    
    
 
   <%end%>
 
   </div>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
 </html>

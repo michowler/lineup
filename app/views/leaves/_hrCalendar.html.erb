@@ -2,6 +2,7 @@
 
 <%=javascript_tag do%>
 	$('#hrCalendar').fullCalendar({
+	theme: true,
 		events: [
 			<%Leafe.where(status:"Approved").each do |leave|%>
 				{

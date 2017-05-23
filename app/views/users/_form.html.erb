@@ -19,8 +19,17 @@
 </div>
 
 <div class="form-group">
-  <%= form.label :avatar %>
-  <%= form.file_field :avatar, class: "form-control" %>
+  <% if current_user.avatar.url.present? %>
+     <%= image_tag(current_user.avatar.url) %>
+     <%= form.label :remove_avatar do %>
+       <%= form.check_box :remove_avatar %>
+       <% current_user.remove_avatar!%>
+       Remove
+      <% end %>
+  <% else %>
+  <% end %>
+   <%= form.file_field :avatar %>
+   <%= form.hidden_field :avatar_cache %> 
 </div>
 
 <div class="form-group">
@@ -37,9 +46,6 @@
   <%= form.label :manager %>
   <%= form.select :manager_id, options_for_select(User.where(position: "Manager").order("name").pluck(:name,:id), selected: @user.manager_id),{:prompt => "Select Manager"}, {class: "form-control"} %>
 </div>
+<br>
 
-<div class="form-group">
-
-  <%= form.hidden_field :password, value: "abc"%>
-</div>
 
