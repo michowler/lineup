@@ -4,7 +4,7 @@ class Leafe < ApplicationRecord
 
 	enum leave_type: ["Annual", "Maternity", "Emergency", "Study", "Sick","Non_paid"]
 	enum status: ["Pending","Approved","Rejected"]
-
+	
 
 	def self.approved_dates
 		approved = []
