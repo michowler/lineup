@@ -8,12 +8,12 @@
        <ul>
 
            <li>
-               <a href="/user_dashboard">
+               <%=link_to user_path(current_user) do%>
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
                        Dashboard
                    </span>
-               </a>
+               <%end%>
              
            </li>
            <li>
@@ -59,14 +59,6 @@
                    </span>
                </a>
            </li>       
-           <li>
-               <a href="/users/<%=current_user.id%>">
-                  <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Profile
-                   </span>
-               </a>
-           </li>
            
        </ul>
       

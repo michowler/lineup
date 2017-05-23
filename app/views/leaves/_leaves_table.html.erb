@@ -19,7 +19,7 @@
 <%@leaves.each do |l|%>
 <tr>
 <td><%=l.id%></td>
-<td><%=l.user.name%></td>
+<td><%=link_to "#{l.user.name}", user_path(l.user)%></td>
 <td><%=l.user.manager.name if l.user.manager != nil%></td>
 <td><%=l.leave_type%></td>
 <td><%=l.status%></td>

@@ -7,11 +7,11 @@
     <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
   </div>
 
-  <div class="submit-field">
-    <%= form.submit "Sign In", class: "btn btn-default" %>
+  <div class="submit-field" style="text-align: center; margin-top: 30px;">
+    <%= form.submit "Sign In", class: "btn btn-default btn-block" %>
   </div>
 
-  <div class="other-links">
+  <div class="other-links" style="text-align: center">
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 <% end %>

@@ -42,11 +42,6 @@ class UsersController < Clearance::UsersController
             render :edit
         end
     end
-    
-    def dashboard
-      session[:path] = request.fullpath
-    end
-
 
     def new
       @user = User.new

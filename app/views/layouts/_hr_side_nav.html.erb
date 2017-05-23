@@ -6,6 +6,7 @@
     </div>
     <br><br><br><br><br>
        <ul>
+       <li><p style="color:grey; font-size: 10px; text-align: center">HR</p></li>
            <li>
                <a href="/hr/dashboard">
                    <i class="fa fa-tachometer fa-2x"></i>
@@ -51,20 +52,15 @@
                    </span>
                </a>
            </li>
+           <li><p style="color:grey; font-size: 12px; text-align: center; margin:10px;">Personal</p></li>
+           
            <li>
-               <a href="#">
-                   <i class="fa fa-window-minimize fa-2x"></i>
-                   <span class="nav-text">
-                   </span>
-               </a>
-           </li>
-           <li>
-               <a href="/user_dashboard">
+               <%=link_to user_path(current_user) do%>
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
-                       Your Dashboard
+                       My Dashboard
                    </span>
-               </a>
+               <%end%>
              
            </li>
            <li>
@@ -79,7 +75,7 @@
                <a href="/users/<%=current_user.id%>/pending">
                   <i class="fa fa-hourglass-half fa-2x"></i>
                    <span class="nav-text">
-                       Your Requests
+                       My Requests
                    </span>
                </a>
                
@@ -88,7 +84,7 @@
                <a href="/users/<%=current_user.id%>/upcoming">
                   <i class="fa fa-plane fa-2x"></i>
                    <span class="nav-text">
-                       Your Upcoming
+                       My Upcoming
                    </span>
                </a>
               
@@ -97,7 +93,7 @@
                <a href="/users/<%=current_user.id%>/history">
                    <i class="fa fa-list fa-2x"></i>
                    <span class="nav-text">
-                       Your History
+                       My History
                    </span>
                </a>
            </li>
@@ -108,15 +104,8 @@
                        Calendar
                    </span>
                </a>
-           </li>       
-           <li>
-               <a href="/users/<%=current_user.id%>">
-                  <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Profile
-                   </span>
-               </a>
-           </li>
+           </li>     
+           
        </ul>
       
    </nav>

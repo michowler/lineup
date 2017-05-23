@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :leaves
   end
-  get "/user_dashboard" => "users#dashboard"
   get "/users/:id/pending" => "users#pending"
   get "/users/:id/upcoming" => "users#upcoming"
   get "/users/:id/history" => "users#history"
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
   end
   
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   root "pages#index"
