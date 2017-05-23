@@ -1,5 +1,7 @@
 class LeavesController < ApplicationController
 	
+	before_action :hr, only: [:index,:pending,:upcoming,:approve,:reject]
+
 	skip_before_action :verify_authenticity_token, only: :update
 
 	def index

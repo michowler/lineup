@@ -1,15 +1,11 @@
 class UsersController < Clearance::UsersController
+    before_action :hr, only: [:index,:new,:create,:destroy]
 
     def index
       session[:path] = request.fullpath
       @users = User.all.order("name").paginate(:page => params[:page], :per_page => 5)
     end
 
-    
-    def new
-      @user = user_from_params
-      render template: "users/new"
-    end
 
     def show
       session[:path] = request.fullpath
