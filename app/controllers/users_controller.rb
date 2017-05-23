@@ -1,7 +1,7 @@
 class UsersController < Clearance::UsersController
 
     def index
-      @users = User.all.order("name").paginate(:page => params[:page], :per_page => 10)
+      @users = User.all.order("name").paginate(:page => params[:page], :per_page => 5)
     end
 
     
