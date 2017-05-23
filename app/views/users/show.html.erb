@@ -28,7 +28,8 @@
 <div class="col-sm-12 col-md-4">
   <div class="col-lg-12">
   <figure class="snip1515 animated fadeIn">
-  <div class="profile-image">
+  
+  <div class="profile-image" style="margin:0px 0px 0px 10px">
   <% if @user.avatar? %>
      <%= image_tag @user.avatar.url(:profile), :class => "img-responsive img-circle" %>
   <% else %> 
