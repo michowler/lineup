@@ -6,6 +6,7 @@
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
+    <%if current_user.department == "Human Resource"%>
     <strong>Allocate Number of Leave:</strong><br><br>
 	<%=form.fields_for :total_leafe do |f|%>
 
@@ -35,7 +36,9 @@
 	</div>
 
 	<%end%>
+	<%end%>
 
+	
     <div class="submit-field">
       <%= form.submit "Submit", class: "btn btn-default"%>
     </div>
