@@ -1,17 +1,17 @@
 <div class="col-sm-12 col-md-8">
 <div class="col-lg-12">
-<h1 class="page-header animated fadeIn">Dashboard</h1>
+<h1 class="page-header animated fadeIn">Welcome, <%=current_user.name%>!</h1>
 </div>
 <p>This is a summary of your leaves. When you request for leave, your HR is notified. When they respond, LineUP will notify you.</p>
   <div class="col-lg-12">
-    <h3 class="page-header animated fadeIn">Upcoming</h3>
+    <h3 class="page-header animated fadeIn">Approved</h3>
   
   <%@leaves = @user.leaves.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
   <%=render "leaves_table"%>
   </div>
 
   <div class="col-lg-12">
-    <h3 class="page-header animated fadeIn">Requests</h3>
+    <h3 class="page-header animated fadeIn">Pendings</h3>
   <%@leaves = @user.leaves.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
   <%=render "leaves_table"%>
   </div>

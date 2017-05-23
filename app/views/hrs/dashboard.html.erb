@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-<h1 class="page-header animated fadeIn">Dashboard</h1>
+<h1 class="page-header animated fadeIn">Welcome, <%=current_user.name%>!</h1>
 </div>
 
 
@@ -41,7 +41,7 @@
 	
 	<div class="request col-sm-12 col-md-12">
 	<div class="col-lg-12">
-	<h3 class="page-header animated fadeIn"><%=link_to "Requests (showing 5 of all requests)", "/hr/pending_leaves"%></h3>
+	<h3 class="page-header animated fadeIn"><%=link_to "Pending Requests", "/hr/pending_leaves"%></h3>
 	</div>
 	<%@leaves = Leafe.where.not(status: "Approved").where("start_date >= ?",Date.today).order("start_date").limit(5).includes(:user)%>
 	<%=render "leaves/leaves_table", :object => @leaves%>
@@ -50,7 +50,7 @@
 
 	<div class="col-sm-12 col-md-12">
 	<div class="col-lg-12">
-	<h3 class="page-header animated fadeIn"><%=link_to 'Upcoming (showing 5 of all upcoming leaves)', "/hr/upcoming_leaves"%></h3>
+	<h3 class="page-header animated fadeIn"><%=link_to 'Approved Leaves', "/hr/upcoming_leaves"%></h3>
 	</div>
 	<%@leaves = Leafe.where(status: "Approved").where("start_date >= ?",Date.today).order("start_date").limit(5).includes(:user)%>
 	<%=render "leaves/leaves_table", :object => @leaves%>
