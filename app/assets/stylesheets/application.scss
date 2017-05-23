@@ -10,6 +10,7 @@
 
 
 body {
+  min-height:1000px;
 	overflow-x: hidden;	
 	font-family: 'Muli', sans-serif;
 	background-image: linear-gradient(to top, #fed6e3 0%, #a8edea 100%);
@@ -22,8 +23,8 @@ body {
 }
 
 .page-header{
- font-family: 'Cabin', sans-serif;
-  font-size:50px;
+  font-family: 'Cabin', sans-serif;
+  font-size:40px;
 	padding-bottom:9px;
 	border-bottom: 1px solid #eee;
 	margin-bottom: 50px;
@@ -97,3 +98,5 @@ rect {
 line {
   stroke: aquamarine;
 }
+
+

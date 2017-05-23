@@ -2,18 +2,20 @@
   <div class="area"></div>
     <nav class="main-menu" style= "position:fixed">
     <div>
-        <a class="navbar-brand" href="/user_dashboard"><img src="/assets/lineuplogo.png" , alt="lineup" /></a>
+        <a class="navbar-brand" href="/user_dashboard"><img src="/assets/lineupsmall.png" , alt="lineup" /></a>
     </div>
-    <br><br><br><br><br>
+    <br>
        <ul>
+       <li><p style="color:orange; font-size: 17px; text-align: left; font-family: 'Pacifico', cursive;">LineUP</p></li>
 
+    <br><br>
            <li>
-               <a href="/user_dashboard">
+               <%=link_to user_path(current_user) do%>
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
                        Dashboard
                    </span>
-               </a>
+               <%end%>
              
            </li>
            <li>
@@ -29,7 +31,7 @@
                <a href="/users/<%=current_user.id%>/pending">
                   <i class="fa fa-hourglass-half fa-2x"></i>
                    <span class="nav-text">
-                       Requests
+                       Pendings
                    </span>
                </a>
                
@@ -38,7 +40,7 @@
                <a href="/users/<%=current_user.id%>/upcoming">
                   <i class="fa fa-plane fa-2x"></i>
                    <span class="nav-text">
-                       Upcoming
+                       Approved
                    </span>
                </a>
               
@@ -59,14 +61,6 @@
                    </span>
                </a>
            </li>       
-           <li>
-               <a href="/users/<%=current_user.id%>">
-                  <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Profile
-                   </span>
-               </a>
-           </li>
            
        </ul>
       

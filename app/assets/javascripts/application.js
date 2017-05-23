@@ -45,7 +45,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $('.glyphicon-remove').click(function(){
     	url = $(this).attr("id")
-    	$('form').attr("action",url)
+    	$('#rejectModal form').attr("action",url)
     });
 
     $('.glyphicon-ok').click(function(){
@@ -99,7 +99,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $('.request tbody tr').mouseenter(function(){
         var event={
-            title: $(this).find(':nth-child(2)').html(), 
+            title: $(this).find(':nth-child(2)').find('a').html()+" "+$(this).find(':nth-child(4)').html()+" Leave", 
             start:  $(this).find(':nth-child(6)').html(),
             end: $(this).find(':nth-child(7)').html(),
             color: 'DarkOrange'};

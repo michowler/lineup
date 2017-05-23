@@ -19,8 +19,8 @@
 <%@leaves.each do |l|%>
 <tr>
 <td><%=l.id%></td>
-<td><%=l.user.name%></td>
-<td><%=l.user.manager.name if l.user.manager != nil%></td>
+<td><%=link_to "#{l.user.name}", user_path(l.user)%></td>
+<td><%=link_to "#{l.user.manager.name}", user_path(l.user.manager) if l.user.manager != nil%></td>
 <td><%=l.leave_type%></td>
 <td><%=l.status%></td>
 <td><%=l.start_date%></td>

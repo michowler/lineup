@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resources :passwords, controller: "passwords", only: [:create, :new]
+  get "/passwords/change" => "passwords#change"
+  post "/passwords/update" => "passwords#update_password"
   resource :session, controller: "sessions", only: [:create]
 
   resources :users, controller: "users", only: [:create] do
     resource :password,
-      controller: "clearance/passwords",
+      controller: "passwords",
       only: [:create, :edit, :update]
   end
 
   resources :users do
     resources :leaves
   end
-  get "/user_dashboard" => "users#dashboard"
   get "/users/:id/pending" => "users#pending"
   get "/users/:id/upcoming" => "users#upcoming"
   get "/users/:id/history" => "users#history"
@@ -21,14 +22,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :sessions, only: [:create]
-      resources :users, only: [:show, :user_show]
+      resources :users, only: [:show]
       resources :leaves, only: [:create, :destroy]
       resources :total_leaves, only: [:total_leaves]
     end
   end
   
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   root "pages#index"

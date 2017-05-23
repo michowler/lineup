@@ -4,10 +4,11 @@
 <title>LineUP</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Cabin|Indie+Flower|Montserrat+Subrayada|Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear|Cabin|Quicksand|Pacifico" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type='text/javascript' src='fullcalendar/gcal.js'></script>
   <%= javascript_include_tag 'application' %>
+  <meta name="turbolinks-cache-control" content="no-preview">
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -25,9 +26,8 @@
            <button class="dropbtn"><%=current_user.name%></button>
            <div class="dropdown-content">
 
-            <%if current_user.department != "Human Resource" %>
             <%= link_to "Settings", edit_user_path(current_user)%>
-            <%end%>
+            <%=link_to "Change Password",'/passwords/change'%>
 
            </div>
          </div>
@@ -36,9 +36,7 @@
       </ul>
   </div> <!--ul-li-->
    
-<%end%>
 
-<% if signed_in? -%>
 
 <div class="row">
 <%if hr?%>
@@ -46,11 +44,7 @@
 <%else%>
   <%=render "layouts/employee_side_nav"%>
 <%end%>
-<% end -%>
-  
 
-
-  <% if signed_in?%>
     <div class="wrapper">
         <% flash.each do |key, value| -%>
         <div class="alert alert-<%=key%> alert-dismissable">
@@ -61,11 +55,10 @@
     <%= yield %>
     </div>
   <%else%>
-    
+
     <%= yield %>
 
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
     <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
     <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.2/particles.js"></script>
@@ -180,12 +173,9 @@
       },
       "retina_detect": true
     };
-        particlesJS("particle", options); 
-    
+    particlesJS("particle", options); 
+  
     </script>
-
-    
-   
 
   <%end%>
 

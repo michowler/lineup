@@ -1,17 +1,47 @@
+<div class="col-sm-12 col-md-8">
+<div class="col-lg-12">
+<h1 class="page-header animated fadeIn">Welcome, <%=current_user.name%>!</h1>
+</div>
+<h4>This is a summary of your leaves.</h4>
+  <div class="col-lg-12">
+    <h3 class="page-header animated fadeIn">Approved</h3>
+  
+  <%@leaves = @user.leaves.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
+  <%=render "leaves_table"%>
+  </div>
 
-<figure class="snip1515">
-  <div class="profile-image">
-  <% if current_user.avatar? %>
-     <%= image_tag current_user.avatar.url(:profile), :class => "img-responsive img-circle" %>
+  <div class="col-lg-12">
+    <h3 class="page-header animated fadeIn">Pendings</h3>
+  <%@leaves = @user.leaves.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
+  <%=render "leaves_table"%>
+  </div>
+
+  <div class="col-lg-12">
+    <h3 class="page-header animated fadeIn">History</h3>
+  
+  <%@leaves = @user.leaves.where("start_date < ?", Date.today).order("start_date DESC").limit(10)%>
+  <%=render "leaves_table"%>
+  </div>
+
+</div>
+
+<div class="col-sm-12 col-md-4">
+  <div class="col-lg-12">
+  <figure class="snip1515 animated fadeIn">
+  
+  <div class="profile-image" style="margin:0px 0px 0px 10px">
+  <% if @user.avatar? %>
+     <%= image_tag @user.avatar.url(:profile), :class => "img-responsive img-circle" %>
   <% else %> 
-    <%= image_tag current_user.avatar.url, :class => "img-responsive img-circle" %>
+    <%= image_tag @user.avatar.url, :class => "img-responsive img-circle" %>
   <%end%>
   </div>
   <figcaption>
     <h3><%=@user.name%></h3>
     <h4><%=@user.position%></h4>
     <h5><%=@user.department%></h5>
-    <p><%=link_to "Edit", edit_user_path(@user),class: "btn btn-default"%><br><br></p>
+    <%=link_to "Request Leave",new_leafe_path, class: "btn btn-default", style:"text-align:left;float:left;"%>
+    <br><br>
      <table class="table table-user">
     <tbody class="table table-user">
       <tr>
@@ -50,6 +80,33 @@
 
   </figcaption>
 </figure>
+  </div>
+  <div class="col-lg-12">
+    <h3 class="page-header animated fadeIn">Remaining Leaves</h3>
+  </div>
+
+  <div class="col-lg-12" style="border:1px solid #eee">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Total</th>
+          <th>Remaining</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%@user.total_leafe.attributes.each do |key,value|%>
+      <%next if key == "id" || key == "user_id"%>
+        <tr>
+          <td><%=key.capitalize%></td>
+          <td><%=value%></td>
+          <td><%=@user.remaining_leafe.send(key)%></td>
+        </tr>
+      <%end%>
+      </tbody>
+    </table>
+  </div>
 
 
- 
+</div>
+

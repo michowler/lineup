@@ -1,4 +1,6 @@
 class SessionsController < Clearance::SessionsController
+	before_action :redirect, only: :new
+
 	  def create
 	    @user = authenticate(params)
 
@@ -7,11 +9,13 @@ class SessionsController < Clearance::SessionsController
 	      	if current_user.department == "Human Resource"
 	      		redirect_to "/hr/dashboard"
 	      	else
-	        	redirect_to "/user_dashboard"
+	        	redirect_to user_path(current_user)
 	        end
 	      else
-	        flash.now.notice = status.failure_message
-	        render template: "sessions/new", status: :unauthorized
+	        flash.now[:danger] = "Incorrect email or password"
+	        respond_to do |format|
+	        	format.js
+	        end
 	      end
 	    end
 	  end
@@ -19,6 +23,10 @@ class SessionsController < Clearance::SessionsController
 	 	def destroy
 		    sign_out
 		    redirect_to "/"
+		end
+
+		def redirect
+			redirect_to '/' if request.fullpath == "/sign_in"
 		end
 
 end

@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
 
     def index
+      session[:path] = request.fullpath
       @users = User.all.order("name").paginate(:page => params[:page], :per_page => 5)
     end
 
@@ -11,6 +12,7 @@ class UsersController < Clearance::UsersController
     end
 
     def show
+      session[:path] = request.fullpath
       @user = User.find(params[:id])
     end
     
@@ -19,7 +21,7 @@ class UsersController < Clearance::UsersController
         @user = User.new(create_params)
         if @user.save
           rl = RemainingLeafe.create(@user.total_leafe.attributes.slice!(:id))
-          @user.update(password: @user.email,private_token: @user.email,remaining_leafe_id: rl.id)
+          @user.update(password: 'abc',private_token: @user.email,remaining_leafe_id: rl.id)
           flash[:success] = "User has been created."
           redirect_to "/hr/dashboard"
         else
@@ -36,17 +38,12 @@ class UsersController < Clearance::UsersController
         @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:success] = "Update successful!"
-            redirect_to @user
+            redirect_to session[:path]
         else
             flash.now[:danger] = "Update fail. Invalid inputs."
             render :edit
         end
     end
-    
-    def dashboard
-      session[:path] = request.fullpath
-    end
-
 
     def new
       @user = User.new
