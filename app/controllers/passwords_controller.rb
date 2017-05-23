@@ -1,6 +1,7 @@
 require 'active_support/deprecation'
 
 class PasswordsController < Clearance::PasswordsController
+	skip_before_action :login_required, only: [:edit,:update]
 
 	def change
 		@user = current_user
@@ -53,14 +54,10 @@ class PasswordsController < Clearance::PasswordsController
   def update
     @user = find_user_for_update
     if @user.update_password password_reset_params
+    	flash[:success] = "Password Updated"
       sign_in @user
       redirect_to url_after_update
       session[:password_reset_token] = nil
-    elsif @user.email == "admin"
-        @user.attributes = {password: params[:password],password_confirmation: params[:password_confirmation]}
-        @user.save(validate: false)
-        sign_in @user
-        redirect_to url_after_update
     else
       flash_failure_after_update
       render template: 'passwords/edit'
