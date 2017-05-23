@@ -13,6 +13,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     def show
         user = User.where(private_token: params[:private_token]).first
         current_user = user
+        user_avatar = current_user
+        user_avatar["avatar"] = user_avatar.avatar.url
+        user_avatar = user_avatar
         user_id = current_user.id
         manager_id = current_user.manager_id
         manager_name = User.find(manager_id)
@@ -24,7 +27,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         # user = user.to_json
         respond_to do |format|
             format.json { render :json => {:user => user, :manager_name => manager_name,
-            :user_leave => user_leave}}
+            :user_leave => user_leave, :user_avatar => user_avatar}}
         # render json: user, status: :ok
         end
     end
