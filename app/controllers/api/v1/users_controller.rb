@@ -24,6 +24,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         user_leave = user_leave.as_json(only: [:id, :leave_type, :start_date, :end_date, :total_days, :status])
         remaining_leaves = RemainingLeafe.find(user_id)
         # remaining_leaves = remaining_leaves
+        
         remaining_leaves = remaining_leaves.as_json(only: [:annual, :maternity, :emergency, :study, :sick, :non_paid])
         # return remaining_leaves
 
