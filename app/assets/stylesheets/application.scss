@@ -6,6 +6,7 @@
 @import "pages";
 @import "users";
 @import "leaves";
+@import "profile";
 
 
 body {
@@ -21,7 +22,7 @@ body {
 }
 
 .page-header{
-  font-family: 'Yesteryear', sans-serif;
+ font-family: 'Cabin', sans-serif;
   font-size:50px;
 	padding-bottom:9px;
 	border-bottom: 1px solid #eee;
