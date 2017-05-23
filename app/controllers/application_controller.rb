@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   protect_from_forgery with: :exception
-  skip_before_action  :verify_authenticity_token
+  
   
   if respond_to?(:before_action)
     before_action :login_required
