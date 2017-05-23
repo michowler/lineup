@@ -37,9 +37,10 @@ document.addEventListener("turbolinks:load",function(){
 	         $('#datepicker1').val(start_date)
 	         $('#datepicker2').val(end_date)
 	    },
-	    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
+	    googleCalendarApiKey: 'AIzaSyCpYLv1YpZzmaszCqhubbE-e90FSvT5Vg8',
 	    events: {
-            googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+            googleCalendarId: 'https://calendar.google.com/calendar/ical/sofiaadamkho%40gmail.com/public/basic.ics',
+            className: 'en.malaysia#holiday@group.v.calendar.google.com'
         }
     });
 

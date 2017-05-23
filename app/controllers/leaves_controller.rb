@@ -1,5 +1,5 @@
 class LeavesController < ApplicationController
-	
+	skip_before_action :verify_authenticity_token, only: :update
 
 	def index
 		@leaves = Leafe.where("start_date < ?", Date.today).order("start_date DESC").includes(:user).paginate(:page => params[:page], :per_page => 5)
