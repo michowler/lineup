@@ -12,8 +12,8 @@ ActiveRecord::Base.transaction do
   	user[:phone_no] = Faker::PhoneNumber.cell_phone
   	user[:address] = Faker::Address.street_address
   	user[:private_token] = user[:email]
-  	user[:total_leafe_id] = t+1
-    user[:remaining_leafe_id] = t+1
+  	user[:total_leafe_id] = t+3
+    user[:remaining_leafe_id] = t+3
   	user.save
   	user.update(password: "abc")
   end
