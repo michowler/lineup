@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
 
   if respond_to?(:before_action)
     before_action :login_required
