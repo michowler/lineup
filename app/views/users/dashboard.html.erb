@@ -7,20 +7,20 @@
 </div>
 <p>This is a summary of your leaves. When you request for leave, your HR is notified. When they respond, LineUP will notify you.</p>
 	<div class="col-lg-12">
-		<h3 class="page-header">Upcoming</h3>
+		<h3 class="page-header animated fadeIn">Upcoming</h3>
 	
 	<%@leaves = current_user.leaves.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
 	<%=render "leaves_table"%>
 	</div>
 
 	<div class="col-lg-12">
-		<h3 class="page-header">Requests</h3>
+		<h3 class="page-header animated fadeIn">Requests</h3>
 	<%@leaves = current_user.leaves.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
 	<%=render "leaves_table"%>
 	</div>
 
 	<div class="col-lg-12">
-		<h3 class="page-header">History</h3>
+		<h3 class="page-header animated fadeIn">History</h3>
 	
 	<%@leaves = current_user.leaves.where("start_date < ?", Date.today).order("start_date DESC").limit(10)%>
 	<%=render "leaves_table"%>
@@ -30,6 +30,9 @@
 
 <div class="col-sm-12 col-md-4">
 	<div class="col-lg-12">
+
+		<h3 class="page-header animated fadeIn">Remaining Leaves</h3>
+
 	<figure class="snip1515">
   <div class="profile-image">
   <% if current_user.avatar? %>
@@ -84,7 +87,8 @@
 </figure>
 	</div>
 	<div class="col-lg-12">
-		<h3 class="page-header">Remaining Leaves</h3>
+		<h3 class="page-header animated fadeIn">Remaining Leaves</h3>
+
 	</div>
 
 	<div class="col-lg-12" style="border:1px solid #eee">
