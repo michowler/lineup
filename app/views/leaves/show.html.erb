@@ -2,6 +2,7 @@
 <h1 class="page-header">Request's Details</h1>
 </div>
 
+<div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
 <table class="table table-inverse">
 	<tbody class="table table-inverse">
 		<tr>
@@ -21,12 +22,17 @@
 		</tr>
 		<tr>
 		<th class="thead-inverse">Status: </th>
-		<td class="text-left"><%=@leafe.status%>
-		<%if @leafe.status == "Rejected"%>
-			<p>Reason of Rejection: <%=@leafe.rejection_reason%></p>
-		<%end%></td>
-
+		<td class="text-left"><%=@leafe.status%></td>
 		</tr>
+		<%if @leafe.status == "Rejected"%>
+			<tr>
+			<th class="thead-inverse">Reason of Rejection: </th>
+			<td class="text-left"><%=@leafe.rejection_reason%></td>
+			</tr>
+		<%end%>
+		
+
+		
 		<tr>
 		<th class="thead-inverse">Start Date: </th>
 		<td class="text-left"><%=@leafe.start_date%></td>
@@ -42,5 +48,11 @@
 		<td class="text-left"><%=@leafe.total_days%></td>
 
 		</tr>
+		<tr>
+		<th class="thead-inverse">Attachment: </th>
+		<td class="text-left"><%=image_tag @leafe.image.profile.url if @leafe.image.present?%></td>
+
+		</tr>
 	</tbody>
 </table>
+</div>

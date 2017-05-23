@@ -1,4 +1,5 @@
 class LeavesController < ApplicationController
+	
 
 	def index
 		@leaves = Leafe.where("start_date < ?", Date.today).order("start_date DESC").includes(:user).paginate(:page => params[:page], :per_page => 5)
@@ -61,6 +62,7 @@ class LeavesController < ApplicationController
 	def approve
 		@leafe = Leafe.find(params[:id])
 		@leafe.update(status: "Approved")
+		@leafe.deduct_leave
 		flash[:success] = "Request Approved"
 		redirect_to session[:path]
 	end

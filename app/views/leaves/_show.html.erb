@@ -1,11 +1,54 @@
-Name: <%=@leafe.user.name%><br>
-Manager: <%=@leafe.user.manager.name if @leafe.user.manager != nil%><br>
-Type: <%=@leafe.leave_type%><br>
-Reason: <%=@leafe.leave_reason%><br>
-Status: <%=@leafe.status%><br>
-<%if @leafe.status == "Rejected"%>
-	Reason of Rejection: <%=@leafe.rejection_reason%><br>
-<%end%>
-Start Date: <%=@leafe.start_date%><br>
-End Date: <%=@leafe.end_date%><br>
-Total days: <%=@leafe.total_days%><br>
+
+<table class="table table-inverse">
+	<tbody class="table table-inverse">
+		<tr>
+		<th class="thead-inverse">Name:</th>
+		<td class="text-left"><%=@leafe.user.name%></td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">Manager: </th>
+		<td class="text-left"><%=@leafe.user.manager.name if @leafe.user.manager != nil%> </td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">Reason: </th>
+		<td class="text-left"><%=@leafe.leave_reason%></td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">Status: </th>
+		<td class="text-left"><%=@leafe.status%></td>
+		</tr>
+
+		<%if @leafe.status == "Rejected"%>
+			<tr>
+			<th class="thead-inverse">Reason of Rejection: </th>
+			<td class="text-left"><%=@leafe.rejection_reason%></td>
+			</tr>
+		<%end%>
+
+
+		
+		<tr>
+		<th class="thead-inverse">Start Date: </th>
+		<td class="text-left"><%=@leafe.start_date%></td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">End Date: </th>
+		<td class="text-left"><%=@leafe.end_date%></td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">Total Days: </th>
+		<td class="text-left"><%=@leafe.total_days%></td>
+
+		</tr>
+		<tr>
+		<th class="thead-inverse">Attachment: </th>
+		<td class="text-left"><%=image_tag @leafe.image.profile.url if @leafe.image.present?%></td>
+
+		</tr>
+	</tbody>
+</table>

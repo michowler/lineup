@@ -8,9 +8,61 @@
        <ul>
            <li>
                <a href="/hr/dashboard">
+                   <i class="fa fa-tachometer fa-2x"></i>
+                   <span class="nav-text">
+                       HR Dashboard
+                   </span>
+               </a>
+             
+           </li>
+           <li>
+               <a href="/hr/pending_leaves">
+                   <i class="fa fa-hourglass fa-2x"></i>
+                   <span class="nav-text">
+                       Requests
+                   </span>
+               </a>
+             
+           </li>
+        
+           <li class="has-subnav">
+               <a href="/hr/upcoming_leaves">
+                  <i class="fa fa-paper-plane-o fa-2x"></i>
+                   <span class="nav-text">
+                       Upcoming
+                   </span>
+               </a>
+               
+           </li>
+           <li class="has-subnav">
+               <a href="/leaves">
+                  <i class="fa fa-history fa-2x"></i>
+                   <span class="nav-text">
+                       History
+                   </span>
+               </a>
+              
+           </li>
+           <li>
+               <a href="/users">
+                   <i class="fa fa-male fa-2x"></i>
+                   <span class="nav-text">
+                       Employees
+                   </span>
+               </a>
+           </li>
+           <li>
+               <a href="#">
+                   <i class="fa fa-window-minimize fa-2x"></i>
+                   <span class="nav-text">
+                   </span>
+               </a>
+           </li>
+           <li>
+               <a href="/user_dashboard">
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
-                       Dashboard
+                       Your Dashboard
                    </span>
                </a>
              
@@ -23,39 +75,29 @@
                    </span>
                </a>
            </li>
-           <li>
-               <a href="/hr/pending_leaves">
-                   <i class="fa fa-hourglass-half fa-2x"></i>
-                   <span class="nav-text">
-                       Requests
-                   </span>
-               </a>
-             
-           </li>
-        
            <li class="has-subnav">
-               <a href="/hr/upcoming_leaves">
-                  <i class="fa fa-plane fa-2x"></i>
+               <a href="/users/<%=current_user.id%>/pending">
+                  <i class="fa fa-hourglass-half fa-2x"></i>
                    <span class="nav-text">
-                       Upcoming
+                       Your Requests
                    </span>
                </a>
                
            </li>
            <li class="has-subnav">
-               <a href="/leaves">
-                  <i class="fa fa-list fa-2x"></i>
+               <a href="/users/<%=current_user.id%>/upcoming">
+                  <i class="fa fa-plane fa-2x"></i>
                    <span class="nav-text">
-                       History
+                       Your Upcoming
                    </span>
                </a>
               
            </li>
            <li>
-               <a href="/users">
-                   <i class="fa fa-user-circle fa-2x"></i>
+               <a href="/users/<%=current_user.id%>/history">
+                   <i class="fa fa-list fa-2x"></i>
                    <span class="nav-text">
-                       Employees
+                       Your History
                    </span>
                </a>
            </li>
@@ -67,7 +109,14 @@
                    </span>
                </a>
            </li>       
-
+           <li>
+               <a href="/users/<%=current_user.id%>">
+                  <i class="fa fa-user-circle fa-2x"></i>
+                   <span class="nav-text">
+                       Profile
+                   </span>
+               </a>
+           </li>
        </ul>
       
    </nav>

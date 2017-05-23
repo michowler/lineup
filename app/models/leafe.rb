@@ -1,5 +1,5 @@
 class Leafe < ApplicationRecord
-	mount_uploader :image, AvatarUploader
+	mount_uploader :image, LeaveUploader
 	belongs_to :user
 
 	enum leave_type: ["Annual", "Maternity", "Emergency", "Study", "Sick","Non_paid"]
@@ -31,13 +31,18 @@ class Leafe < ApplicationRecord
 	def has_remaining?
 		remaining_leafe = self.user.remaining_leafe
 		remaining_no = remaining_leafe.send(self.leave_type.downcase)
-		remaining_no += self.total_days if self.total_days != nil
 		if remaining_no-self.weekdays >= 0
-			remaining_leafe.update(self.leave_type.downcase.to_sym => (remaining_no-self.weekdays))
+			# remaining_leafe.update(self.leave_type.downcase.to_sym => (remaining_no-self.weekdays))
 			return true
 		else
 			return false
 		end
+	end
+
+	def deduct_leave
+		remaining_leafe = self.user.remaining_leafe
+		remaining_no = remaining_leafe.send(self.leave_type.downcase)
+		remaining_leafe.update(self.leave_type.downcase.to_sym => (remaining_no-self.weekdays))
 	end
 
 end
