@@ -62,6 +62,7 @@ class LeavesController < ApplicationController
 	def approve
 		@leafe = Leafe.find(params[:id])
 		@leafe.update(status: "Approved")
+		@leafe.deduct_leave
 		flash[:success] = "Request Approved"
 		redirect_to session[:path]
 	end

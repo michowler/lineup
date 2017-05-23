@@ -48,6 +48,9 @@ ActiveRecord::Base.transaction do
     if leafe.has_remaining?
       leafe.total_days = leafe.weekdays
       leafe.save
+      if leafe.status == "Approved"
+        leafe.deduct_leave
+      end
     else
       next
     end
