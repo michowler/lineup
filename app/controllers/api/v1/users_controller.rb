@@ -20,7 +20,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         manager_id = current_user.manager_id
         manager_name = User.find(manager_id)
         manager_name = manager_name.as_json(only: [:name])
-		user_leave = User.find(user_id).leaves(:start_date)
+		user_leave = User.find(user_id).leaves.order(:start_date)
         user_leave = user_leave.as_json(only: [:id, :leave_type, :start_date, :end_date, :total_days, :status])
         remaining_leaves = RemainingLeafe.find(user_id)
         # remaining_leaves = remaining_leaves
