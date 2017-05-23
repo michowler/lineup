@@ -21,7 +21,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         manager_name = User.find(manager_id)
         manager_name = manager_name.as_json(only: [:name])
         # byebug
-		user_leave = User.find(user_id).leaves
+		user_leave = User.find(user_id).leaves(:start_date)
         user_leave = user_leave.as_json(only: [:id, :leave_type, :start_date, :end_date, :total_days, :status])
         # manager = User.where(manager_id: 1)
         # user = user.to_json

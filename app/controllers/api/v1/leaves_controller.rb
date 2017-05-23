@@ -9,7 +9,7 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         # create_params[:image] = leafe.remote_image_url 
         if leafe.has_remaining?
 			leafe.total_days = leafe.weekdays
-             
+            leafe.status = leafe.update(status: "Pending")
 			leafe.save
 			render json: {message: "Request sent"}
         else
