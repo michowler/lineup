@@ -1,5 +1,5 @@
 class Leafe < ApplicationRecord
-	mount_uploader :images, AvatarsUploader
+	mount_uploader :image, AvatarUploader
 	belongs_to :user
 
 	enum leave_type: ["Annual", "Maternity", "Emergency", "Study", "Sick","Non_paid"]

@@ -13,16 +13,21 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     def show
         user = User.where(private_token: params[:private_token]).first
         current_user = user
+        user_avatar = current_user
+        user_avatar["avatar"] = user_avatar.avatar.url
+        user_avatar = user_avatar
         user_id = current_user.id
         manager_id = current_user.manager_id
-        manager_name = User.find(manager_id).name
-		user_leave = User.find(user_id).leaves 
-        user_leave = user_leave.as_json(only: [:leave_type, :start_date, :end_date, :total_days, :status])
+        manager_name = User.find(manager_id)
+        manager_name = manager_name.as_json(only: [:name])
+        # byebug
+		user_leave = User.find(user_id).leaves
+        user_leave = user_leave.as_json(only: [:id, :leave_type, :start_date, :end_date, :total_days, :status])
         # manager = User.where(manager_id: 1)
         # user = user.to_json
         respond_to do |format|
             format.json { render :json => {:user => user, :manager_name => manager_name,
-            :user_leave => user_leave}}
+            :user_leave => user_leave, :user_avatar => user_avatar}}
         # render json: user, status: :ok
         end
     end
