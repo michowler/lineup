@@ -20,14 +20,17 @@ class Api::V1::UsersController < Api::V1::ApplicationController
         manager_id = current_user.manager_id
         manager_name = User.find(manager_id)
         manager_name = manager_name.as_json(only: [:name])
-        # byebug
 		user_leave = User.find(user_id).leaves(:start_date)
         user_leave = user_leave.as_json(only: [:id, :leave_type, :start_date, :end_date, :total_days, :status])
-        # manager = User.where(manager_id: 1)
+        remaining_leaves = RemainingLeafe.find(user_id)
+        # remaining_leaves = remaining_leaves
+        remaining_leaves = remaining_leaves.as_json(only: [:annual, :maternity, :emergency, :study, :sick, :non_paid])
+        # return remaining_leaves
+
         # user = user.to_json
         respond_to do |format|
             format.json { render :json => {:user => user, :manager_name => manager_name,
-            :user_leave => user_leave, :user_avatar => user_avatar}}
+            :user_leave => user_leave, :user_avatar => user_avatar, :remaining_leaves => remaining_leaves}}
         # render json: user, status: :ok
         end
     end
