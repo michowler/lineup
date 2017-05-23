@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
 
     def index
+      session[:path] = request.fullpath
       @users = User.all.order("name").paginate(:page => params[:page], :per_page => 5)
     end
 
@@ -11,6 +12,7 @@ class UsersController < Clearance::UsersController
     end
 
     def show
+      session[:path] = request.fullpath
       @user = User.find(params[:id])
     end
     
@@ -36,7 +38,7 @@ class UsersController < Clearance::UsersController
         @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:success] = "Update successful!"
-            redirect_to @user
+            redirect_to session[:path]
         else
             flash.now[:danger] = "Update fail. Invalid inputs."
             render :edit
