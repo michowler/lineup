@@ -96,10 +96,26 @@ document.addEventListener("turbolinks:load",function(){
         selector: '.background'
       });
     };
+
+    $('.request tbody tr').mouseenter(function(){
+        var event={
+            title: $(this).find(':nth-child(2)').html(), 
+            start:  $(this).find(':nth-child(6)').html(),
+            end: $(this).find(':nth-child(7)').html(),
+            color: 'DarkOrange'};
+        var id = event.id
+        $('#hrCalendar').fullCalendar( 'gotoDate', event.start );
+        $('#hrCalendar').fullCalendar( 'renderEvent', event, true);
+    })
+
+    $('.request tbody tr').mouseleave(function(){
+        clientEvents = $('#hrCalendar').fullCalendar('clientEvents')
+        event = clientEvents[clientEvents.length-1]
+        $('#hrCalendar').fullCalendar('removeEvents',event._id);
+        $('#hrCalendar').fullCalendar('today');
+    })
     
 })
-
-
 });
 
 function yesterday(date){
