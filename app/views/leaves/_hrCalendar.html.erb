@@ -16,7 +16,8 @@
 				start: "<%=leave.start_date%>",
 				end:	"<%=leave.end_date%>",
 				url: '<%=leafe_path(leave)%>',
-				description: '<%=leave.leave_reason%>'
+				description: '<%=leave.leave_reason%>',
+                color: eventColor('<%=leave.leave_type%>')
 			},
 		<%end%>
 	],
@@ -36,4 +37,28 @@
         });
     }
 	})
+
+    function eventColor(event){
+        switch(event) {
+            case "Annual":
+                return 'blue'
+                break;
+            case "Maternity":
+                return 'red'
+                break;
+            case "Sick":
+                return 'yellow'
+                break;
+            case "Study":
+                return 'green'
+                break;
+            case "Emergency":
+                return 'purple'
+                break;
+            case "Non_paid":
+                return 'aquamarine'
+                break;
+        }
+
+    }
 <%end%>
