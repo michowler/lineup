@@ -69,3 +69,4 @@ gem 'rails_12factor'
 gem 'unicorn'
 gem 'sidekiq'
 gem 'faker'
+gem "letter_opener", :group => :development

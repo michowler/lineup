@@ -1,17 +1,17 @@
 <div class="col-sm-12 col-md-8">
 <div class="col-lg-12">
-<h1 class="page-header animated fadeIn">Dashboard</h1>
+<h1 class="page-header animated fadeIn">Welcome, <%=current_user.name%></h1>
 </div>
-<p>This is a summary of your leaves. When you request for leave, your HR is notified. When they respond, LineUP will notify you.</p>
+<h3>This is a summary of your leaves.</h3>
 	<div class="col-lg-12">
-		<h3 class="page-header animated fadeIn">Upcoming</h3>
+		<h3 class="page-header animated fadeIn">Approved</h3>
 	
 	<%@leaves = current_user.leaves.where(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
 	<%=render "leaves_table"%>
 	</div>
 
 	<div class="col-lg-12">
-		<h3 class="page-header animated fadeIn">Requests</h3>
+		<h3 class="page-header animated fadeIn">Pending</h3>
 	<%@leaves = current_user.leaves.where.not(status: "Approved").where("start_date >= ?", Date.today).order("start_date")%>
 	<%=render "leaves_table"%>
 	</div>
@@ -44,7 +44,7 @@
     <h5><%=@user.department%></h5>
     <%=link_to "Edit", edit_user_path(@user),class: "btn btn-default"%>
     <%=link_to "Request Leave",new_leafe_path, class: "btn btn-default"%><br><br>
-     <table class="table table-user">
+     <table class="table-user">
     <tbody class="table table-user">
       <tr>
       <th class="thead-user">Name:</th>

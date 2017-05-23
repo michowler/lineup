@@ -10,6 +10,7 @@
 
 
 body {
+  min-height:1000px;
 	overflow-x: hidden;	
 	font-family: 'Muli', sans-serif;
 	background-image: linear-gradient(to top, #fed6e3 0%, #a8edea 100%);
@@ -98,16 +99,4 @@ line {
   stroke: aquamarine;
 }
 
-/*.hrCalendar {
-    width: 600px;
-    position:inherit;
-}
 
-@media screen and (min-width: 1645px) {
-  .hrCalendar {
-      position: fixed;
-      width: 600px;
-      height: auto;
-  }
-}
-*/

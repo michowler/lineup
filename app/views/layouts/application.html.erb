@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear|Cabin|Quicksand|Pacifico" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type='text/javascript' src='fullcalendar/gcal.js'></script>
   <%= javascript_include_tag 'application' %>
   
   
@@ -27,9 +28,8 @@
            <button class="dropbtn"><%=current_user.name%></button>
            <div class="dropdown-content">
 
-            <%if current_user.department != "Human Resource" %>
             <%= link_to "Settings", edit_user_path(current_user)%>
-            <%end%>
+            <%=link_to "Change Password",'/passwords/change'%>
 
            </div>
          </div>
@@ -57,7 +57,7 @@
     <%= yield %>
     </div>
   <%else%>
-    
+
     <%= yield %>
 
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

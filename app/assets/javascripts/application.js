@@ -46,7 +46,7 @@ document.addEventListener("turbolinks:load",function(){
 
     $('.glyphicon-remove').click(function(){
     	url = $(this).attr("id")
-    	$('form').attr("action",url)
+    	$('#rejectModal form').attr("action",url)
     });
 
     $('.glyphicon-ok').click(function(){

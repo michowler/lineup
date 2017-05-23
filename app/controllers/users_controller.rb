@@ -21,7 +21,7 @@ class UsersController < Clearance::UsersController
         @user = User.new(create_params)
         if @user.save
           rl = RemainingLeafe.create(@user.total_leafe.attributes.slice!(:id))
-          @user.update(password: @user.email,private_token: @user.email,remaining_leafe_id: rl.id)
+          @user.update(password: 'abc',private_token: @user.email,remaining_leafe_id: rl.id)
           flash[:success] = "User has been created."
           redirect_to "/hr/dashboard"
         else
