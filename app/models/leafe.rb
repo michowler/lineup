@@ -40,6 +40,7 @@ class Leafe < ApplicationRecord
 	end
 
 	def deduct_leave
+		
 		remaining_leafe = self.user.remaining_leafe
 		remaining_no = remaining_leafe.send(self.leave_type.downcase)
 		remaining_leafe.update(self.leave_type.downcase.to_sym => (remaining_no-self.weekdays))
