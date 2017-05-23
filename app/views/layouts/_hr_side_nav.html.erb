@@ -55,12 +55,12 @@
            <li><p style="color:grey; font-size: 12px; text-align: center; margin:10px;">Personal</p></li>
            
            <li>
-               <a href="/user_dashboard">
+               <%=link_to user_path(current_user) do%>
                    <i class="fa fa-home fa-2x"></i>
                    <span class="nav-text">
                        My Dashboard
                    </span>
-               </a>
+               <%end%>
              
            </li>
            <li>
@@ -104,15 +104,7 @@
                        Calendar
                    </span>
                </a>
-           </li>   
-           <li>
-               <a href="/users/<%=current_user.id%>">
-                  <i class="fa fa-user-circle fa-2x"></i>
-                   <span class="nav-text">
-                       Profile
-                   </span>
-               </a>
-           </li>    
+           </li>     
            
        </ul>
       
