@@ -1,4 +1,5 @@
 class LeavesController < ApplicationController
+	
 
 	def index
 		@leaves = Leafe.where("start_date < ?", Date.today).order("start_date DESC").includes(:user).paginate(:page => params[:page], :per_page => 5)
