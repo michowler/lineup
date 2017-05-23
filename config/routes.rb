@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  get "/passwords/change" => "passwords#change"
+  post "/passwords/update" => "passwords#update_password"
   resource :session, controller: "sessions", only: [:create]
 
   resources :users, controller: "users", only: [:create] do
