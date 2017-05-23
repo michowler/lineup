@@ -23,6 +23,7 @@ class User < ApplicationRecord
   #       return user
   # end
 
+
   def generate_private_token
     self.private_token = SecureRandom.hex(10) if private_token.blank?
   end
