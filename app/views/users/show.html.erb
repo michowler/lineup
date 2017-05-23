@@ -39,8 +39,9 @@
     <h3><%=@user.name%></h3>
     <h4><%=@user.position%></h4>
     <h5><%=@user.department%></h5>
-    <%=link_to "Edit", edit_user_path(@user),class: "btn btn-default"%>
-    <%=link_to "Request Leave",new_leafe_path, class: "btn btn-default"%><br><br>
+    <%=link_to "Request Leave",new_leafe_path, class: "btn btn-default"%>
+    <%=link_to "Edit Profile", edit_user_path(@user),class: "btn btn-default"%>
+    <%=link_to "Change Password",'/passwords/change', class: "btn btn-default"%><br><br>
      <table class="table table-user">
     <tbody class="table table-user">
       <tr>
