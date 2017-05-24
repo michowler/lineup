@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  def hr
+    redirect_to "/" if current_user.department != "Human Resource"
+  end
+
 end

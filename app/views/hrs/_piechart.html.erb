@@ -1,0 +1,24 @@
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+
+<%=javascript_tag do%>
+      google.charts.load("current", {packages:["corechart"], 'callback': drawChart});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Department', 'Absentees per Month'],
+          ['Human Resource',     <%=Leafe.where(status:"Approved").joins(:user).where("department = ?", 0).count%>],
+          ['Marketing',      <%=Leafe.where(status:"Approved").joins(:user).where("department = ?", 2).count%>],
+          ['Accounting',  <%=Leafe.where(status:"Approved").joins(:user).where("department = ?", 1).count%>]
+        ]);
+
+        var options = {
+          title: 'Leaves per Department',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+<%end%>
+
+    

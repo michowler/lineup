@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<div class="col-md-10 col-md-offset-1">
+
+<%= link_to '#', class: "btn btn-default", onclick: 'window.print();', style: "float:right;" do%>
+<i class="fa fa-print"></i>
+<%end%>
+
+<%= link_to "/download/#{@leafe.id}", class: "btn btn-default", style: "float:right;",:action => :download do%>
+<i class="fa fa-floppy-o""></i>
+<%end%>
+
+<div class="col-md-8 col-md-offset-2">
+<%=image_tag @leafe.image.url%>
+</div>
+</div>

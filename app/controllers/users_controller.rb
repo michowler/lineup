@@ -1,15 +1,11 @@
 class UsersController < Clearance::UsersController
+    before_action :hr, only: [:index,:new,:create,:destroy]
 
     def index
       session[:path] = request.fullpath
       @users = User.all.order("name").paginate(:page => params[:page], :per_page => 5)
     end
 
-    
-    def new
-      @user = user_from_params
-      render template: "users/new"
-    end
 
     def show
       session[:path] = request.fullpath
@@ -21,8 +17,10 @@ class UsersController < Clearance::UsersController
         @user = User.new(create_params)
         if @user.save
           rl = RemainingLeafe.create(@user.total_leafe.attributes.slice!(:id))
-          @user.update(password: 'abc',private_token: @user.email,remaining_leafe_id: rl.id)
-          flash[:success] = "User has been created."
+          password = SecureRandom.base64
+          @user.update(password: password,private_token: @user.email,remaining_leafe_id: rl.id)
+          flash[:success] = "User has been created. Please check your email for the user password"
+          UserMailer.create_user(@user,password).deliver
           redirect_to "/hr/dashboard"
         else
             flash.now[:info] = @user.errors.full_messages.first
@@ -82,11 +80,11 @@ class UsersController < Clearance::UsersController
   # end
 
 	def user_params
-		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar, :remove_avatar, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
+		params.require(:user).permit(:name, :position, :email, :password_confirmation, :department, :manager_id, :phone_no, :private_token, :address, :avatar, :remove_avatar, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick,:non_paid])
 	end 
 
   def create_params
-    params.require(:user).permit(:name, :position, :email, :department, :manager_id, :phone_no, :address, :avatar,:password, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick])
+    params.require(:user).permit(:name, :position, :email, :department, :manager_id, :phone_no, :address, :avatar,:password, total_leafe_attributes:[:id,:annual,:maternity,:study,:emergency,:sick,:non_paid])
   end 
 
 

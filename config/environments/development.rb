@@ -63,7 +63,7 @@ Rails.application.configure do
       authentication:       'plain',
       enable_starttls_auto: true  }
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
     # config.active_job.queue_adapter = :sidekiq
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   

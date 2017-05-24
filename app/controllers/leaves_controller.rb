@@ -1,4 +1,9 @@
 class LeavesController < ApplicationController
+
+	
+	before_action :hr, only: [:index,:pending,:upcoming,:approve,:reject]
+
+
 	skip_before_action :verify_authenticity_token, only: :update
 
 	def index
@@ -84,6 +89,16 @@ class LeavesController < ApplicationController
 	def destroy
 		@leafe = Leafe.find(params[:id])
 		@leafe.destroy
+	end
+
+	def attachment
+		@leafe = Leafe.find(params[:id])
+		render "attachment", layout: false
+	end
+
+	def download
+		@leafe = Leafe.find(params[:id])
+		send_file @leafe.image.url, :x_sendfile=>true
 	end
 	
 	private

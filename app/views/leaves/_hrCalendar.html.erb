@@ -2,30 +2,38 @@
 <div id="eventContent" title="Event Details" style="display:none;">
     Start: <span id="startTime"></span><br>
     End: <span id="endTime"></span><br><br>
-    Reason: <p id="eventInfo"></p>
+    <!-- Reason: <p id="eventInfo"></p> -->
     <p><strong><a id="eventLink" href="" target="_blank">Read More</a></strong></p>
 </div>
 
 <%=javascript_tag do%>
 	$('#hrCalendar').fullCalendar({
 	theme: true,
-	events: [
-		<%Leafe.where(status:"Approved").each do |leave|%>
-			{
-				title: '<%=leave.user.name+" "+leave.leave_type+" Leave"%>',
-				start: "<%=leave.start_date%>",
-				end:	"<%=leave.end_date%>",
-				url: '<%=leafe_path(leave)%>',
-				description: '<%=leave.leave_reason%>',
-                color: eventColor('<%=leave.leave_type%>')
-			},
-		<%end%>
+	eventSources: [
+        {
+            events: [
+        		<%Leafe.where(status:"Approved").each do |leave|%>
+        			{
+        				title: '<%=leave.user.name+" "+leave.leave_type+" Leave"%>',
+        				start: "<%=leave.start_date%>",
+        				end:	"<%=leave.end_date%>",
+        				url: '<%=leafe_path(leave)%>',
+        				description: '<%=leave.leave_reason%>',
+                        color: eventColor('<%=leave.leave_type%>')
+        			},
+        		<%end%>
+            ]
+        },
+        {
+            googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+        }
 	],
     header: {
         left: '',
         center: 'prev title next',
         right: ''
     },
+    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
     eventRender: function (event, element) {
         element.attr('href', 'javascript:void(0);');
         element.click(function() {

@@ -47,8 +47,7 @@
 		</tr>
 		<tr>
 		<th class="thead-inverse">Attachment: </th>
-		<td class="text-left"><%=image_tag @leafe.image.profile.url if @leafe.image.present?%></td>
-
+		<td class="text-left"><a href="/leaves/attachment/<%=@leafe.id%>" target="_blank"><%=image_tag @leafe.image.profile.url if @leafe.image.present?%></a></td>
 		</tr>
 	</tbody>
 </table>
