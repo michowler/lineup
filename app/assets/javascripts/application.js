@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require moment 
 //= require fullcalendar
+//= require fullcalendar/gcal
 //= require_tree .
 
 $(document).ready(function(){
@@ -26,7 +27,11 @@ document.addEventListener("turbolinks:load",function(){
     $('#calendar').fullCalendar({
     	selectable: true,
         theme: true,
-
+        eventSources: [
+            {
+                googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+            }
+        ],
     	select: function(start, end, jsEvent, view) {
 	         // start contains the date you have selected
 	         // end contains the end date. 
@@ -38,8 +43,14 @@ document.addEventListener("turbolinks:load",function(){
 	         $('#datepicker2').val(end_date)
 	    },
 	    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
-	    events: {
-            googleCalendarId: 'en.malaysia#holiday@group.v.calendar.google.com'
+        eventRender: function (event, element) {
+            element.attr('href', 'javascript:void(0);');
+            element.click(function() {
+                $("#startTime").html(moment(event.start).format('MMM Do'));
+                $("#endTime").html(moment(event.end).format('MMM Do'));
+                $("#eventLink").attr('href', event.url);
+                $("#eventContent").dialog({ modal: true, title: event.title, width:350});
+            });
         }
     });
 
@@ -128,4 +139,3 @@ function yesterday(date){
     if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} 
     return $yyyy+'-'+$mm+'-'+$dd;
 }
-

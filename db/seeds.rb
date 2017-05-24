@@ -44,7 +44,7 @@ ActiveRecord::Base.transaction do
     leafe[:status] = rand(0..2)
     leafe[:rejection_reason] = Faker::Hipster.sentence
     leafe[:start_date] = Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
-    leafe[:end_date] = leafe[:start_date]+rand(1..3)
+    leafe[:end_date] = leafe[:start_date]+rand(2..5)
     if leafe.has_remaining?
       leafe.total_days = leafe.weekdays
       leafe.save
