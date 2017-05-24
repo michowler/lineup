@@ -25,7 +25,7 @@
       </li>
        <li>
          <div class="dropdown">
-           <button class="dropbtn"><%=current_user.name%></button>
+           <button class="dropbtn"><%= link_to current_user.name, user_path(current_user.id)%></button>
            <div class="dropdown-content">
 
             <%= link_to "Settings", edit_user_path(current_user)%>
@@ -34,7 +34,7 @@
            </div>
          </div>
         </li>
-       <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %></li>
+       <li><%= button_to "SIGN OUT", sign_out_path, method: :delete, class: "btn btn-small btn-main" %></li>
       </ul>
   </div> <!--ul-li-->
    
