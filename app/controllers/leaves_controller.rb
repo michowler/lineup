@@ -98,7 +98,8 @@ class LeavesController < ApplicationController
 
 	def download
 		@leafe = Leafe.find(params[:id])
-		send_file @leafe.image.url, :x_sendfile=>true
+		data = open(@leafe.image.url) 
+  		send_data data.read, disposition: 'inline', stream: 'true', buffer_size: '4096'
 	end
 	
 	private
