@@ -2,23 +2,6 @@
 <h1 class="page-header animated fadeIn">Welcome, <%=current_user.name%>!</h1>
 </div>
 
-
-<div class= "row ">
-
-	<%=link_to "Requests", hr_pending_leaves_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-	<%=link_to "History", leaves_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-	<%=link_to "Statistics", hr_statistics_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-	<%=link_to "Add Employee", new_user_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-	<%=link_to "Employees", users_path, class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-	<%=link_to "Calendar", "/calendar", class: 'dashboard-button btn btn-default col-sm-6 col-md-2'%>
-
-</div>
-
 <div class= "row">
 <div class="col-sm-12 col-md-5">
 
