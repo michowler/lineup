@@ -3,6 +3,7 @@
 </div>
 
 <div class="row ">
+
 <div id="calendar" class="col-sm-8 col-md-6"></div>
 <div id="eventContent" title="Event Details" style="display:none;">
     Start: <span id="startTime"></span><br>
@@ -11,6 +12,8 @@
 </div>
 
 <div class="col-sm-4 col-md-3 ">
+
+
 <%=form_for @leafe,class: "form-horizontal " do |form|%>
 	
 	<%=render partial: "form", object: form%>

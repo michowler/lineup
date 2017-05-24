@@ -42,6 +42,7 @@ document.addEventListener("turbolinks:load",function(){
 	         $('#datepicker1').val(start_date)
 	         $('#datepicker2').val(end_date)
 	    },
+
 	    googleCalendarApiKey: 'AIzaSyD8IQsRnniDJRYp6wEl-TEoxrOymYN1_rs',
         eventRender: function (event, element) {
             element.attr('href', 'javascript:void(0);');
@@ -51,6 +52,7 @@ document.addEventListener("turbolinks:load",function(){
                 $("#eventLink").attr('href', event.url);
                 $("#eventContent").dialog({ modal: true, title: event.title, width:350});
             });
+
         }
     });
 
