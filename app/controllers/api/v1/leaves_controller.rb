@@ -20,7 +20,6 @@ class Api::V1::LeavesController < Api::V1::ApplicationController
         leafe.destroy
     end
     
-
     
 
 	private

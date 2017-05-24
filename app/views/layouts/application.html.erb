@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css?family=Muli|Yesteryear|Cabin|Quicksand|Pacifico" rel="stylesheet">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <%= javascript_include_tag 'application' %>
+  
+  
   <meta name="turbolinks-cache-control" content="no-preview">
   <%= csrf_meta_tag %>
 </head>
@@ -22,7 +24,7 @@
       </li>
        <li>
          <div class="dropdown">
-           <button class="dropbtn"><%=current_user.name%></button>
+           <button class="dropbtn"><%= link_to current_user.name, user_path(current_user.id)%></button>
            <div class="dropdown-content">
 
             <%= link_to "Settings", edit_user_path(current_user)%>
@@ -31,7 +33,7 @@
            </div>
          </div>
         </li>
-       <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-warning" %></li>
+       <li><%= button_to "SIGN OUT", sign_out_path, method: :delete, class: "btn btn-small btn-main" %></li>
       </ul>
   </div> <!--ul-li-->
    
@@ -175,9 +177,6 @@
     particlesJS("particle", options); 
   
     </script>
-
-    
-   
 
   <%end%>
 

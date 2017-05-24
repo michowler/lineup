@@ -7,6 +7,11 @@
 @import "users";
 @import "leaves";
 @import "profile";
+@import "overlay";
+
+.background {
+  z-index:-10;
+}
 
 
 body {
@@ -15,6 +20,7 @@ body {
 	font-family: 'Muli', sans-serif;
 	background-image: linear-gradient(to top, #fed6e3 0%, #a8edea 100%);
   background-repeat: no-repeat;
+  z-index:-8;
 }
 
 .dashboard-button {
@@ -70,6 +76,20 @@ body {
 	border-color: white;
 	color:white;
 	
+}
+
+.btn-main {
+   background-color: transparent;
+    border-color: black;
+    color:black;
+    font-family:Arial;
+}
+
+.btn-main:hover {
+   background-color: orange;
+    border-color: white;
+    color:white;
+    font-family:Arial;
 }
 
 #particle {
