@@ -1,6 +1,6 @@
 class Api::V1::TotalLeavesController < Api::V1::ApplicationController
 
-    def total_leaves
+    # def total_leaves
         # user = User.where(private_token: params[:private_token]).first
         # remaining_leave = user.id
 
